@@ -13,7 +13,7 @@
  
 class JA_Geocode
 {
-	public $request_url 	= "http://maps.google.com/maps/api/geocode/json?";
+	public $request_url 	= "https://0cc7eee8-89a3780cf261.my.apitools.com/geocode/json?";
 	
 	public $sensor 			= "false";
 	public $language 		= "en";
