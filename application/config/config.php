@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://www.helpify.com';
+$config['base_url']	= 'http://www.helpific.com';
 
 /*
 |--------------------------------------------------------------------------
@@ -224,7 +224,7 @@ $config['cache_path'] = '';
 | MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = 'D}NzA$+Q\'|w6Xezi%Q/.<)]Vcx9V6kPc\'d}JJ"nc#3=|dj&B|m,HqVdXyQe@yez.';
 
 /*
 |--------------------------------------------------------------------------
