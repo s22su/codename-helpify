@@ -6,7 +6,7 @@ class Helprequest extends CI_Controller {
 		parent::__construct();
 		$common = new Common($this);
 	}
-	
+
 	public function index() {
 		// pre($this->authentication->getUserData());
 
@@ -14,6 +14,7 @@ class Helprequest extends CI_Controller {
 	}
 
 	public function add() {
-		//TODO: RISTO ADD YOUR CODE HERE
+
+        $this->twiggy->template($this->currentLanguage .'/help_request')->display();
 	}
 }
