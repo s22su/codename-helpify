@@ -9,6 +9,7 @@ class Common {
 		$this->uri   = $controller->uri;
 		$this->router = $controller->router;
 		$this->input = $controller->input;
+		$this->user = $controller->authentication->getUserData();
 
 		$this->lang->load('web_texts', 'english');
 
@@ -16,6 +17,7 @@ class Common {
 		$this->twiggy->set('base_url', $this->config->item('base_url'));
 		$this->twiggy->set('language', 'english');
 		$this->twiggy->set('lang_texts', $this->lang->language);
+		$this->twiggy->set('user', $this->user);
 
 		$controller->currentLanguage = $this->twiggy->language;
 

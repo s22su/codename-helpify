@@ -17,6 +17,12 @@
 		</div>
     </div>
 
+    <div class="centered">
+    	{% if user == false %}
+    	<a href="{{base_url}}/auth/facebook"><i class="fa fa-facebook" style="font-size: 30px"></i></a>
+    	{% endif %}
+    </div>
+
     <br><br><br><br><br>
 
 {% endblock %}

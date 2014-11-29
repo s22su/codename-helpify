@@ -10,6 +10,7 @@ class Home extends CI_Controller {
 	}
 	
 	public function index() {
+		// pre($this->authentication->getUserData());
 		$this->twiggy->template($this->currentLanguage.'/home')->display();
 	}
 

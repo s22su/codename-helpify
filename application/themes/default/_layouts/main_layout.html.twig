@@ -33,6 +33,9 @@
           <ul class="nav navbar-nav">
             <li class="{{menuLinkClasses.home}}"><a href="{{base_url}}">Home</a></li>
             <li class="{{menuLinkClasses.about}}"><a href="{{base_url}}/about">About</a></li>
+            {%if user %}
+            <li><a href="{{base_url}}/logout">Logout</a></li>
+            {%endif%}
           </ul>
         </div><!--/.nav-collapse -->
       </div>
