@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://helpific.com';
+$config['base_url']	= 'http://www.helpific.com';
 
 /*
 |--------------------------------------------------------------------------
@@ -224,7 +224,7 @@ $config['cache_path'] = '';
 | MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = 'dV8o5jAHf{9g*w+1qMdI)K[V@QW0)|})j2_3P>Ed&el+}.\'r0xk,7(!rp\'Ua/<V{';
 
 /*
 |--------------------------------------------------------------------------
@@ -356,8 +356,6 @@ $config['rewrite_short_tags'] = FALSE;
 |
 */
 $config['proxy_ips'] = '';
-
-include 'helpific.php';
 
 
 /* End of file config.php */

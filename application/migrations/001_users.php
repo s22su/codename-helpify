@@ -14,23 +14,42 @@ class Migration_Users extends CI_Migration {
                 'unsigned' => TRUE,
                 'auto_increment' => TRUE
             ),
-            'username' => array(
-                'type' => 'VARCHAR',
-                'constraint' => '100',
-            ),
             'email' => array(
                 'type' => 'VARCHAR',
                 'constraint' => '255',
+                'null' => TRUE,
             ),
-            'latitude' => array(
-                'type' => 'POINT'
+            'name' => array(
+                'type' => 'VARCHAR',
+                'constraint' => '255',
+                'null' => TRUE,
             ),
-            'longitude' => array(
-                'type' => 'POINT'
+            'first_name' => array(
+                'type' => 'VARCHAR',
+                'constraint' => '255',
+                'null' => TRUE,
+            ),
+            'last_name' => array(
+                'type' => 'VARCHAR',
+                'constraint' => '255',
+                'null' => TRUE,
+            ),
+            'facebook_profile' => array(
+                'type' => 'VARCHAR',
+                'constraint' => '255',
+                'null' => TRUE,
+            ),
+            'verified' => array(
+                'type' => 'TINYINT',
+                'null' => TRUE,
             ),
             'description' => array(
                 'type' => 'TEXT',
                 'null' => TRUE,
+            ),
+            'facebook_id' => array(
+                'type' => 'BIGINT',
+                'null' => TRUE
             ),
             'created_at' => array(
                 'type' => 'TIMESTAMP DEFAULT CURRENT_TIMESTAMP'

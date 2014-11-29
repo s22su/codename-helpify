@@ -22,9 +22,15 @@ class Migration_Helpifications extends CI_Migration {
                 'type' => 'TEXT',
                 'null' => TRUE,
             ),
+            'latitude' => array(
+                'type' => 'POINT'
+            ),
+            'longitude' => array(
+                'type' => 'POINT'
+            ),
             'created_at' => array(
                 'type' => 'TIMESTAMP DEFAULT CURRENT_TIMESTAMP'
-            )
+            ),
         ));
 
         $this->dbforge->add_key(self::PRIMARY_KEY, TRUE);
