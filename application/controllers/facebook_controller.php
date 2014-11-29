@@ -1,6 +1,5 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-if ( ! defined('ENVIRONMENT') || ENVIRONMENT !== 'development') exit('Development mode only');
 
 class Facebook_Controller extends CI_Controller {
 
