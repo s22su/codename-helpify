@@ -66,5 +66,7 @@ class Do_Help_Controller extends CI_Controller {
                 'experience' => $this->input->post('experience')
             )
         );
+
+        redirect('/helprequest');
     }
 }
