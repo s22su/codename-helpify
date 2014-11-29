@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://helpify.com';
+$config['base_url']	= 'http://helpific.com';
 
 /*
 |--------------------------------------------------------------------------
@@ -356,6 +356,8 @@ $config['rewrite_short_tags'] = FALSE;
 |
 */
 $config['proxy_ips'] = '';
+
+include 'helpific.php';
 
 
 /* End of file config.php */

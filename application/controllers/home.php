@@ -11,7 +11,7 @@ class Home extends CI_Controller {
 	}
 	
 	public function index() {
-		$this->twiggy->set('base_url', $this->config->item('base_url'));
+		
 		$this->twiggy->display();
 	}
 }
