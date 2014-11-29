@@ -12,21 +12,22 @@
 
     <link href="{{base_url}}/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{base_url}}/assets/vendor/bootstrap-accessibility-plugin/plugins/css/bootstrap-accessibility_1.0.3.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link href="{{base_url}}/assets/stylesheets/screen.css" rel="stylesheet">
   </head>
 
   <body>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
+            <span class="sr-only">{{lang_texts.toggle_navigation}}</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="{{base_url}}">{{lang_texts.nav_head_text}}</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">

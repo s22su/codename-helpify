@@ -70,10 +70,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 /* line 8, ../sass/screen.scss */
 body {
   padding-top: 50px;
+  font-family: 'Open Sans', sans-serif;
 }
 
-/* line 11, ../sass/screen.scss */
+/* line 12, ../sass/screen.scss */
 .starter-template {
-  padding: 40px 15px;
+  margin-top: 40px;
   text-align: center;
 }
