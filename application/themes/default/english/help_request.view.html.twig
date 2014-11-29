@@ -1,0 +1,46 @@
+{% extends "_layouts/main_layout.html.twig" %}
+
+{% block content %}
+
+{% if record == FALSE %}
+
+    <h1>No record found</h1>
+
+{% else %}
+    <h1>{{request_user.name}} wants to </h1>
+    <h2>...{{request.category}} </h2>
+
+    <br />
+    <br />
+    <br />
+
+    <dl class="dl-horizontal">
+      <dt>When:</dt>
+      <dd>{{ request.date | date }}</dd>
+      <dt>Address:</dt>
+      <dd>{{ request.address }}</dd>
+      <dt>Formatted:</dt>
+      <dd>{{ request.address_formatted }}</dd>
+      <dt>Created:</dt>
+      <dd>{{ request.created_at }}</dd>
+    </dl>
+
+    <br />
+    <br />
+    <br />
+
+    <h2>More about {{request_user.name}}</h2>
+
+    <br />
+    <br />
+
+    <dl class="dl-horizontal">
+      <dt>Contact by email:</dt>
+      <dd>{{ request_user.email }}</dd>
+      <dt>Facebook contact:</dt>
+      <dd><a href="{{ request_user.facebook_profile }}">Facebook</a></dd>
+    </dl>
+
+{% endif %}
+
+{% endblock %}

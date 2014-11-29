@@ -42,8 +42,7 @@ class Helprequest extends CI_Controller {
 		$this->twiggy->template($this->currentLanguage.'/helprequest.index')->display();
 	}
 
-	public function add()
-	{
+	public function add() {
 		// TODO: hardcoded also, should add the field in database
 		$country = 'Estonia';
 
@@ -76,6 +75,38 @@ class Helprequest extends CI_Controller {
 		}
 
 		$this->twiggy->set('now', date('m/d/Y', time()));
+		$this->twiggy->set('view_url', site_url('/helprequest/view'));
         $this->twiggy->template($this->currentLanguage .'/help_request.add')->display();
+	}
+
+	public function view ()	{
+		$segment = 3;
+
+		if ($this->uri->segment($segment) === FALSE)
+		{
+		    $view_id = -1;
+		}
+		else
+		{
+		    $view_id = $this->uri->segment($segment);
+		}
+
+		$this->load->model('helprequest_model');
+		$this->load->model('users_model');
+
+		$helpRequest = $this->helprequest_model->getById($view_id);
+		$user        = $this->users_model->getById($helpRequest->user_id);
+
+		// Handle error
+		if (!$helpRequest || !$helpRequest->user_id || $user) {
+
+			$this->twiggy->set('record', FALSE);
+		}
+
+		$this->twiggy->set('record', TRUE);
+		$this->twiggy->set('request_user', $user);
+		$this->twiggy->set('request', $helpRequest);
+
+		$this->twiggy->template($this->currentLanguage .'/help_request.view')->display();
 	}
 }

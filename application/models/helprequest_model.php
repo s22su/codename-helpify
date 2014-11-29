@@ -75,4 +75,22 @@ class Helprequest_Model extends CI_Model {
         $this->db->from('help_requests');
         return $this->db->insert(self::TABLE, $data);
     }
+
+    /**
+     * Get help request by id
+     * @param  int $id
+     * @return return     [description]
+     */
+    function getById($id) {
+
+        $this->db->from(self::TABLE);
+        $this->db->where('id', $id);
+
+        $results = array();
+        foreach($this->db->get()->result() as $row) {
+            $results[] = $row;
+        }
+
+        return reset($results);
+    }
 }
