@@ -1,6 +1,6 @@
 <?php
 class Helprequest_Model extends CI_Model {
-    const TABLE = 'help_request';
+    const TABLE = 'help_requests';
 
     var $id;
     var $user_id;
@@ -24,12 +24,12 @@ class Helprequest_Model extends CI_Model {
 
     	// city filter
     	if(isset($filters['city']) && $filters['city']) {
-    		$this->db->where('city', $filters['city']);	
+    		$this->db->where('city', $filters['city']);
     	}
 
     	// category filter
     	if(isset($filters['category']) && $filters['category']) {
-    		$this->db->where('category', $filters['category']);	
+    		$this->db->where('category', $filters['category']);
     	}
 
 		// date filter
@@ -40,7 +40,7 @@ class Helprequest_Model extends CI_Model {
     	$this->db->join('users', 'users.user_id = help_requests.user_id');
 
     	$res = $this->db->get();
-        
+
         if($res->num_rows() === 0) {
         	return false;
         }
@@ -64,4 +64,15 @@ class Helprequest_Model extends CI_Model {
     	return $arr;
     }
 
+    /**
+     * Insert new help request to page
+     *
+     * @param  array $data
+     * @return array inserted entry
+     */
+    function addHelpRequest($data = array()) {
+
+        $this->db->from('help_requests');
+        return $this->db->insert(self::TABLE, $data);
+    }
 }

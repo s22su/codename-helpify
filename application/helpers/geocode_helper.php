@@ -6,6 +6,10 @@ if ( ! function_exists('geocode')) {
         $ci->load->spark('ja-geocode/1.2.0');
         $ci->ja_geocode->query(sprintf('%s, %s', $city, $address));
 
+        if('ZERO_RESULTS' === $ci->ja_geocode->status) {
+            return false;
+        }
+
         return array(
             'latitude' => $ci->ja_geocode->lat,
             'longitude' => $ci->ja_geocode->lng,
