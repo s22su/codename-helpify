@@ -6,6 +6,12 @@
     </div>
     <hr />
     <form role="form" action="/do-help" method="post">
+        {% if error %}
+        <div class="row bg-danger">
+            {{ error }}
+        </div>
+        <hr />
+        {% endif %}
         <div class="row">
             {% if profile_image %}
                 <div class="col-md-8">

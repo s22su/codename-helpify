@@ -41,13 +41,20 @@ class Do_Help_Controller extends CI_Controller {
             $this->cache->file->save($cacheId, $profileImage);
         }
         $this->twiggy->set('profile_image', $profileImage);
+        $this->twiggy->set('error', $this->session->flashdata('error'));
         $this->twiggy->template($this->currentLanguage.'/do_help')->display();
     }
 
     protected function input($post) {
         $this->load->helper('geocode_helper');
         $geocode = geocode($this->input->post('address'), $this->input->post('city'));
-        $result = $this->helper_profile_model->insert(
+
+        if(false === $geocode) {
+            $this->session->set_flashdata('error', 'Location not found. Please enter a new location');
+            return false;
+        }
+
+        $this->helper_profile_model->insert(
             array(
                 'user_id' => $this->user->user_id,
                 'city' => $this->input->post('city'),
@@ -59,6 +66,5 @@ class Do_Help_Controller extends CI_Controller {
                 'experience' => $this->input->post('experience')
             )
         );
-
     }
 }

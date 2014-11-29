@@ -34,11 +34,13 @@ class Migration_Helper_Profiles extends CI_Migration {
                 'constraint' => '255',
             ),
             'lat' => array(
-                'type' => 'FLOAT',
+                'type' => 'DECIMAL',
+                'constraint' => '20,16',
                 'null' => TRUE,
             ),
             'lon' => array(
-                'type' => 'FLOAT',
+                'type' => 'DECIMAL',
+                'constraint' => '20,16',
                 'null' => TRUE,
             ),
             'hobbies' => array(
