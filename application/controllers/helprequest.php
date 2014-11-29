@@ -6,7 +6,7 @@ class Helprequest extends CI_Controller {
 		parent::__construct();
 		$common = new Common($this);
 	}
-	
+
 	public function index() {
 		// pre($this->authentication->getUserData());
 
@@ -30,9 +30,6 @@ class Helprequest extends CI_Controller {
 				$filters['date'] = $this->input->get('date');
 			}
 
-			pre('Filters:');
-			pre($filters);
-
 			$entries = $this->helprequest_model->getHelpRequests($filters);
 
 			pre($entries);
@@ -44,6 +41,7 @@ class Helprequest extends CI_Controller {
 	}
 
 	public function add() {
-		
+
+        $this->twiggy->template($this->currentLanguage .'/help_request')->display();
 	}
 }
