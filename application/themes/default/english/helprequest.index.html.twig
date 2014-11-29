@@ -1,0 +1,48 @@
+{% extends "_layouts/main_layout.html.twig" %}
+
+{% block content %}
+
+    <div class="row">
+    	
+    	<div class="centered"><h1>Search for help needers</h1><br></div>
+
+        <div class="col-xs-8 col-xs-offset-2">
+			<form action="" class="form-horizontal" role="form" method="get">
+		        <div class="form-group">
+		            <label for="categorySelect">Category</label>
+		            <select name="category" id="categorySelect">
+		            	<option value="">Select category</option>
+						<option value="one">Cat 1</option>
+						<option value="two">Cat 2</option>
+					</select>
+		        </div>
+
+		        <div class="form-group">
+		            <label for="citySelect">City</label>
+		            <select name="city" id="citySelect">
+		            	<option value="">Select city</option>
+		            	<option value="Tallinn">Tallinn</option>
+		            </select>
+		        </div>
+
+		        <div class="form-group">
+		            <label for="dateSelect">Date</label>
+		            <select name="city" id="dateSelect">
+		            	<option value="">City</option>
+		            	<option value="one">Cat 1</option>
+		            	<option value="two">Cat 2</option>
+		            	<option value="three">Cat 3</option>
+		            	<option value="four">Cat 4</option>
+		            </select>
+		        </div>
+
+		        <input type="hidden" name="submitted" value="1">
+
+				<button type="submit" class="btn btn-default">Submit</button>
+			</form>
+
+
+        </div>
+	</div>
+
+{% endblock %}
