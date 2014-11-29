@@ -60,7 +60,8 @@ class Facebook_Controller extends CI_Controller {
                 )
             );
         }
-        $this->authentication->setUserData($user);
+
+        $this->authentication->setUserData($this->users_model->getRecordByFacebookId($user->id));
         $this->session->set_flashdata('message', 'Successfully logged in');
 
         $role = $this->session->userData('role');
