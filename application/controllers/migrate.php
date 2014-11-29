@@ -1,6 +1,5 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-if ( ! defined('ENVIRONMENT') || ENVIRONMENT !== 'development') exit('Development mode only');
 
 class Migrate extends CI_Controller {
     public function __construct()
