@@ -33,11 +33,7 @@ class Helprequest extends CI_Controller {
 
 			$entries = $this->helprequest_model->getHelpRequests($filters);
 
-<<<<<<< HEAD
-			//pre($entries);
 
-=======
->>>>>>> 7f6a3715d17029afbba9652f80b2d927ca3069ef
 			$this->twiggy->set('entries', $entries);
 			$this->twiggy->set('submitted', 1);
 		}
