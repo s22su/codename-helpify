@@ -27,7 +27,6 @@ class Common {
 		if($this->input->get('dbgHelpific')) {
 			$controller->output->enable_profiler(TRUE);
 		}
-		pre($this->user);
 	}
 
 

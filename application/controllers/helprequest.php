@@ -33,8 +33,6 @@ class Helprequest extends CI_Controller {
 
 			$entries = $this->helprequest_model->getHelpRequests($filters);
 
-			pre($entries);
-
 			$this->twiggy->set('entries', $entries);
 		}
 
@@ -43,27 +41,35 @@ class Helprequest extends CI_Controller {
 
 	public function add()
 	{
+		// TODO: hardcoded also, should add the field in database
+		$country = 'Estonia';
 
 		if($this->input->post()) {
+
 			$this->load->model('helprequest_model');
+			$this->load->spark('ja-geocode/1.2.0');
+
+			$user = $this->authentication->getUserData();
 
 			$formData = array(
-				// 'user_id'  =>
-				'category' => $this->input->post('category', true),
-				'date'     => $this->input->post('date', true),
-				'city'     => $this->input->post('city', true),
-				'address'  => $this->input->post('address', true),
+				'user_id'   => $user->user_id,
+				'category'  => $this->input->post('category', true) ?: null,
+				'date'      => strtotime($this->input->post('date', true)) ?: time(),
+				'city'      => $this->input->post('city', true) ?: null,
+				'address'   => $this->input->post('address', true) ?: null,
+				'is_active' => true,
 			);
 
-			// TODO: hack not working
-			pre($this->authentication->getUserData());
-			// pre($this);
-			// $entries = $this->helprequest_model->addHelpRequest($formData);
-			// pre($entries);
+			// Geocode, OMFG so safe
+			$address = $this->ja_geocode->query($country .' '. $formData['city'] .' '. $formData['city']);
 
-			// pre($entries);
+			$formData['lat'] = $this->ja_geocode->lat;
+			$formData['lon'] = $this->ja_geocode->lng;
+			$formData['address_formatted'] = $this->ja_geocode->address;
 
-			// $this->twiggy->set('entries', $entries);
+			$entries = $this->helprequest_model->addHelpRequest($formData);
+
+			redirect(site_url('/helprequest'));
 		}
 
         $this->twiggy->template($this->currentLanguage .'/help_request')->display();
