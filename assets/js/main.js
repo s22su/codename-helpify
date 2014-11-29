@@ -26,7 +26,9 @@
     };
 
     $(document).ready(function () {
-
+        $('#datetimepicker').datetimepicker({
+            pickTime: false
+        });
         Front.init();
     });
 
