@@ -45,13 +45,17 @@ $route['migrate/current'] = "migrate/current";
 $route['migrate/latest'] = "migrate/latest";
 $route['migrate/version/(:num)'] = "migrate/version/$1";
 
-$route['auth/facebook'] = "facebook_controller/authentication";
+$route['auth/need-help'] = "facebook_controller/authentication";
+$route['auth/do-help'] = "facebook_controller/authentication";
+
+$route['need-help'] = "profile_controller/need_help";
+$route['do-help'] = "profile_controller/do_help";
+
 $route['facebook'] = 'facebook_controller/callback';
 $route['logout'] = 'facebook_controller/logout';
 
 // functional routes
 $route['about'] = "home/about";
-
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
