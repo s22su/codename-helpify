@@ -74,6 +74,6 @@ class Helprequest extends CI_Controller {
 			redirect(site_url('/helprequest'));
 		}
 
-        $this->twiggy->template($this->currentLanguage .'/help_request')->display();
+        $this->twiggy->template($this->currentLanguage .'/help_request.add')->display();
 	}
 }
