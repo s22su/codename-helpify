@@ -22,11 +22,12 @@ class Common {
 		$controller->currentLanguage = $this->twiggy->language;
 
 		$linkClasses = $this->menuLinkActiveClassSwitcher();
-		$this->twiggy->set('menuLinkClasses', $linkClasses);		
+		$this->twiggy->set('menuLinkClasses', $linkClasses);
 
 		if($this->input->get('dbgHelpific')) {
 			$controller->output->enable_profiler(TRUE);
 		}
+		pre($this->user);
 	}
 
 

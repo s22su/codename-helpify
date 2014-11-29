@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="row">
-  <form class="form-horizontal" role="form" name="need_help">
+  <form class="form-horizontal" role="form" name="need_help" method="post">
 
     <div class="form-group">
       <label for="category" class="col-sm-2 control-label">Category:</label>
@@ -29,16 +29,15 @@
     <div class="form-group">
       <label for="address" class="col-sm-2 control-label">Address:</label>
       <div class="col-sm-5">
-        <input type="text" class="form-control" placeholder="Insert your location">
+        <input type="text" class="form-control" name="address" placeholder="Insert your location">
       </div>
     </div>
-
 
     <div class="form-group">
       <label for="date" class="col-sm-2 control-label">Date:</label>
         <div class=" col-sm-5">
           <div class="input-group date" id="datetimepicker">
-            <input type="text" class="form-control" />
+            <input type="text" class="form-control" name="date" />
             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
             </span>
           </div>
