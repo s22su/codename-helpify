@@ -149,8 +149,8 @@ p {
 }
 
 /* line 85, ../sass/screen.scss */
-.fp-main-buttons-container {
-  margin-top: 50px;
+.centered-margin {
+  margin: 0 auto;
 }
 
 /* line 89, ../sass/screen.scss */
@@ -170,8 +170,63 @@ button.btn .yellowbutton {
 }
 
 /* line 104, ../sass/screen.scss */
+.m20top {
+  margin-top: 20px;
+}
+
+/* line 108, ../sass/screen.scss */
 .italic {
   font-style: italic;
+}
+
+/* line 112, ../sass/screen.scss */
+.header_picture {
+  margin-top: 71px;
+  background-image: url(../images/header.png);
+  height: 399px;
+  background-color: #ccc;
+  width: 100%;
+}
+/* line 119, ../sass/screen.scss */
+.header_picture h1, .header_picture h2 {
+  color: #fff;
+}
+/* line 123, ../sass/screen.scss */
+.header_picture .headline {
+  padding-top: 100px;
+}
+/* line 127, ../sass/screen.scss */
+.header_picture a, .header_picture a:hover {
+  text-decoration: none !important;
+}
+/* line 131, ../sass/screen.scss */
+.header_picture h1 {
+  font-size: 25px;
+}
+/* line 135, ../sass/screen.scss */
+.header_picture h2 {
+  font-size: 20px;
+}
+
+/* line 140, ../sass/screen.scss */
+.front-doors {
+  height: 800px;
+  background-color: #ccc;
+  width: 100%;
+}
+/* line 145, ../sass/screen.scss */
+.front-doors .left {
+  float: left;
+  width: 50%;
+  background-color: #05aad7;
+  height: 800px;
+}
+/* line 152, ../sass/screen.scss */
+.front-doors .right {
+  float: left;
+  width: 50%;
+  background-color: #a3b930;
+  height: 800px;
 }
 
 /* line 1, ../sass/listing.scss */

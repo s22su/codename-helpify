@@ -22,7 +22,6 @@ class Helper_Profile_Model extends CI_Model {
         $this->db->from(self::TABLE);
         $this->db->where('user_id', $userId);
         $this->db->where('deleted_at IS NULL', null, false);
-        $query = $this->db->get();
-        return $query->num_rows() > 0;
+        return $this->db->count_all_results() > 0;
     }
 }

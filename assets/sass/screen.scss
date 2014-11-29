@@ -82,8 +82,8 @@ p {
 	text-align: center;
 }
 
-.fp-main-buttons-container {
-	margin-top: 50px;
+.centered-margin {
+	margin: 0 auto;
 }
 
 .main-container {
@@ -101,12 +101,60 @@ button.btn {
 	margin-top: 40px;
 }
 
+.m20top {
+	margin-top: 20px;
+}
+
 .italic {
 		font-style: italic;
 }
 
 .header_picture {
-	
+	margin-top: 71px;
+	background-image: url(../images/header.png);
+	height: 399px;
+	background-color: #ccc;
+	width: 100%;
+
+	h1, h2 {
+		color: #fff;
+	}
+
+	.headline {
+		padding-top: 100px;
+	}
+
+	a, a:hover {
+		text-decoration: none!important;
+	}
+
+	h1 {
+		font-size: 25px;
+	}
+
+	h2 {
+		font-size: 20px;
+	} 
+}
+
+.front-doors {
+	height: 800px;
+	background-color: #ccc;
+	width: 100%;
+
+	.left {
+		float: left;
+		width: 50%;
+		background-color:  #05aad7;
+		height: 800px;
+	}
+
+	.right {
+		float: left;
+		width: 50%;
+		background-color:  #a3b930;
+		height: 800px;
+	}
 }
 
 @import "./listing";

@@ -18,8 +18,7 @@ class Users_Model extends CI_Model {
     {
         $this->db->from('users');
         $this->db->where('facebook_id', $facebookId);
-        $query = $this->db->get();
-        return $query->num_rows() > 0;
+        return $this->db->count_all_results() > 0;
     }
 
     function createWithFacebookData($data)
