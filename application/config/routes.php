@@ -53,7 +53,7 @@ $route['facebook'] = 'facebook_controller/callback';
 $route['auth/do-help'] = "facebook_controller/authentication";
 
 $route['need-help'] = "profile_controller/need_help";
-$route['do-help'] = "profile_controller/do_help";
+$route['do-help'] = "do_help_controller/do_help";
 
 $route['logout'] = 'facebook_controller/logout';
 

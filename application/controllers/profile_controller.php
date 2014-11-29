@@ -21,9 +21,4 @@ class Profile_Controller extends CI_Controller {
     {
         $this->twiggy->template($this->currentLanguage.'/need_help')->display();
     }
-
-    public function do_help()
-    {
-        $this->twiggy->template($this->currentLanguage.'/do_help')->display();
-    }
 }
