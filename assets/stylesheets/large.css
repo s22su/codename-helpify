@@ -1,0 +1,7 @@
+@media (min-width: 768px) {
+  /* line 2, ../sass/large.scss */
+  .navbar-nav {
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+}

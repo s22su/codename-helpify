@@ -37,13 +37,31 @@ class Helprequest_Model extends CI_Model {
     		$this->db->where('date', $filters['city']);
     	}
 
+    	$this->db->join('users', 'users.user_id = help_requests.user_id');
+
     	$res = $this->db->get();
         
         if($res->num_rows() === 0) {
         	return false;
         }
 
-        return $res->result_array();
+        $rows = $res->result_array();
+        foreach($rows as &$row) {
+        	$row['converted_date'] = $this->convertTimestamp($row['date']);
+        }
+
+        return $rows;
+    }
+
+    private function convertTimestamp($timestamp) {
+    	$arr = array(
+    		'dateY' => date('Y-m-d', $timestamp),
+    		'day'   => date('d', $timestamp),
+    		'monthName3' => date('M', $timestamp),
+    		'year' => date('Y', $timestamp)
+    	);
+
+    	return $arr;
     }
 
 }

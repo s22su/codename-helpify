@@ -71,7 +71,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 body {
   padding-top: 50px;
   font-family: 'Open Sans', sans-serif;
-  background-color: #eaeaea;
+  background-color: #fff;
   color: #000;
 }
 
@@ -93,72 +93,257 @@ pre {
 
 /* line 35, ../sass/screen.scss */
 .helpific-navbar {
-  border-bottom: 3px solid #ffc600;
-  background-color: #000;
+  box-shadow: 2px 4px 5px 0px rgba(1, 1, 1, 0.1);
   padding: 10px 0;
+  background-color: #fff;
+  height: 120px !important;
 }
-/* line 40, ../sass/screen.scss */
+/* line 41, ../sass/screen.scss */
 .helpific-navbar a {
-  color: #ffc600;
+  color: #05aad7;
+  font-size: 24px;
+  /* Approximation due to font substitution */
+  font-weight: 700;
 }
-/* line 44, ../sass/screen.scss */
-.helpific-navbar a:hover, .helpific-navbar li:hover {
-  background-color: #ffc600 !important;
-  color: #000;
-}
-/* line 49, ../sass/screen.scss */
+/* line 47, ../sass/screen.scss */
 .helpific-navbar li {
   margin-left: 10px;
 }
-/* line 53, ../sass/screen.scss */
-.helpific-navbar li {
-  border: 3px solid #000;
+/* line 51, ../sass/screen.scss */
+.helpific-navbar li.active, .helpific-navbar li.active a {
+  color: #4c4c4c;
+  font-size: 24px;
+  /* Approximation due to font substitution */
+  font-weight: 700;
 }
 /* line 57, ../sass/screen.scss */
-.helpific-navbar li.active {
-  border-color: #ffc600;
-  border: 3px solid #ffc600;
+.helpific-navbar li:hover {
+  border: 0 !important;
 }
-/* line 62, ../sass/screen.scss */
+/* line 61, ../sass/screen.scss */
 .helpific-navbar .navbar-toggle {
   color: #ffc600;
   font-size: 1.7em;
 }
 
-/* line 68, ../sass/screen.scss */
+/* line 67, ../sass/screen.scss */
 h1 {
   font-size: 2em;
   font-weight: bold;
 }
 
-/* line 73, ../sass/screen.scss */
+/* line 72, ../sass/screen.scss */
 h2 {
   font-size: 1.7em;
   font-weight: bold;
 }
 
-/* line 78, ../sass/screen.scss */
+/* line 77, ../sass/screen.scss */
 p {
   margin: 15px 0;
 }
 
-/* line 82, ../sass/screen.scss */
+/* line 81, ../sass/screen.scss */
 .centered {
   text-align: center;
 }
 
-/* line 86, ../sass/screen.scss */
+/* line 85, ../sass/screen.scss */
 .fp-main-buttons-container {
   margin-top: 50px;
 }
 
-/* line 90, ../sass/screen.scss */
+/* line 89, ../sass/screen.scss */
 .main-container {
   margin-top: 100px;
 }
 
-/* line 95, ../sass/screen.scss */
+/* line 94, ../sass/screen.scss */
 button.btn .yellowbutton {
   background-color: #000 !important;
   color: #ffc600 !important;
+}
+
+/* line 100, ../sass/screen.scss */
+.m40top {
+  margin-top: 40px;
+}
+
+/* line 104, ../sass/screen.scss */
+.italic {
+  font-style: italic;
+}
+
+/* line 1, ../sass/listing.scss */
+.event-list {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+/* line 6, ../sass/listing.scss */
+.event-list > li {
+  background-color: white;
+  box-shadow: 0px 0px 5px #333333;
+  box-shadow: 0px 0px 5px rgba(51, 51, 51, 0.7);
+  padding: 0px;
+  margin: 0px 0px 20px;
+}
+
+/* line 13, ../sass/listing.scss */
+.event-list > li > time {
+  display: inline-block;
+  width: 100%;
+  color: white;
+  background-color: #c52c66;
+  padding: 5px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* line 22, ../sass/listing.scss */
+.event-list > li:nth-child(even) > time {
+  background-color: #a552a7;
+}
+
+/* line 25, ../sass/listing.scss */
+.event-list > li > time > span {
+  display: none;
+}
+
+/* line 28, ../sass/listing.scss */
+.event-list > li > time > .day {
+  display: block;
+  font-size: 56pt;
+  font-weight: 100;
+  line-height: 1;
+}
+
+/* line 34, ../sass/listing.scss */
+.event-list > li time > .month {
+  display: block;
+  font-size: 24pt;
+  font-weight: 900;
+  line-height: 1;
+}
+
+/* line 40, ../sass/listing.scss */
+.event-list > li > img {
+  width: 100%;
+}
+
+/* line 43, ../sass/listing.scss */
+.event-list > li > .info {
+  padding-top: 5px;
+  text-align: center;
+}
+
+/* line 47, ../sass/listing.scss */
+.event-list > li > .info > .title {
+  font-size: 17pt;
+  font-weight: 700;
+  margin: 0px;
+}
+
+/* line 52, ../sass/listing.scss */
+.event-list > li > .info > .desc {
+  font-size: 13pt;
+  font-weight: 300;
+  margin: 0px;
+  margin-top: 10px;
+}
+
+/* line 59, ../sass/listing.scss */
+.event-list > li > .social > ul {
+  margin: 0px;
+}
+
+/* line 62, ../sass/listing.scss */
+.event-list > li > .info > ul > li,
+.event-list > li > .social > ul > li {
+  display: table-cell;
+  cursor: pointer;
+  color: #1e1e1e;
+  font-size: 11pt;
+  font-weight: 300;
+  padding: 3px 0px;
+}
+
+/* line 72, ../sass/listing.scss */
+.event-list > li > .viewButton {
+  top: 0px;
+  right: 0px;
+  display: block;
+  padding: 32px 0;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  /* line 82, ../sass/listing.scss */
+  .event-list > li {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 120px;
+    padding: 0px;
+  }
+
+  /* line 89, ../sass/listing.scss */
+  .event-list > li > time,
+  .event-list > li > img {
+    display: inline-block;
+  }
+
+  /* line 93, ../sass/listing.scss */
+  .event-list > li > time,
+  .event-list > li > img {
+    width: 120px;
+    float: left;
+  }
+
+  /* line 98, ../sass/listing.scss */
+  .event-list > li > .info {
+    background-color: whitesmoke;
+    overflow: hidden;
+  }
+
+  /* line 102, ../sass/listing.scss */
+  .event-list > li > time,
+  .event-list > li > img {
+    width: 120px;
+    height: 120px;
+    padding: 0px;
+    margin: 0px;
+  }
+
+  /* line 109, ../sass/listing.scss */
+  .event-list > li > .info {
+    position: relative;
+    height: 120px;
+    text-align: left;
+    padding-right: 40px;
+  }
+
+  /* line 115, ../sass/listing.scss */
+  .event-list > li > .info > .title,
+  .event-list > li > .info > .desc {
+    padding: 0px 10px;
+  }
+
+  /* line 120, ../sass/listing.scss */
+  .event-list > li > .viewButton {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display: block;
+    width: 100px;
+    padding-top: 32px;
+  }
+}
+@media (min-width: 768px) {
+  /* line 2, ../sass/large.scss */
+  .navbar-nav {
+    margin-top: 20px;
+    margin-left: 20px;
+  }
 }

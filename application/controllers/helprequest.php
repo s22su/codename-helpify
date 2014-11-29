@@ -32,9 +32,10 @@ class Helprequest extends CI_Controller {
 
 			$entries = $this->helprequest_model->getHelpRequests($filters);
 
-			pre($entries);
+			//pre($entries);
 
 			$this->twiggy->set('entries', $entries);
+			$this->twiggy->set('submitted', 1);
 		}
 
 		$this->twiggy->template($this->currentLanguage.'/helprequest.index')->display();

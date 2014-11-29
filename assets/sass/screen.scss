@@ -11,7 +11,7 @@ $yellow: #ffc600;
 body {
 	padding-top: 50px;
 	font-family: 'Open Sans', sans-serif;
-	background-color: #eaeaea;
+	background-color: #fff;
 	color: #000;
 }
 
@@ -33,30 +33,29 @@ pre {
 }
 
 .helpific-navbar {
-	border-bottom: 3px solid $yellow;
-	background-color: $black;
+	box-shadow: 2px 4px 5px 0.00px rgba(1, 1, 1, 0.1);
 	padding: 10px 0;
+	background-color: #fff;
+	height: 120px !important;
 
 	a {
-		color: $yellow;
-	}
-
-	a:hover, li:hover {
-		background-color: $yellow !important;
-		color: $black;
+		color:  #05aad7;
+		font-size: 24px; /* Approximation due to font substitution */
+		font-weight: 700;
 	}
 
 	li {
 		margin-left: 10px;
 	}
-	
-	li {
-		border: 3px solid $black;
+
+	li.active, li.active a {
+		color:  #4c4c4c;
+		font-size: 24px; /* Approximation due to font substitution */
+		font-weight: 700;
 	}
 
-	li.active {
-		border-color: $yellow;
-		border: 3px solid $yellow;
+	li:hover {
+		border: 0!important;
 	}
 
 	.navbar-toggle {
@@ -97,3 +96,15 @@ button.btn {
 		color: $yellow!important;
 	}
 }
+
+.m40top {
+	margin-top: 40px;
+}
+
+.italic {
+		font-style: italic;
+	}
+
+@import "./listing";
+@import "./large";
+
