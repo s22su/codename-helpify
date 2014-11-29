@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://helpify.com';
+$config['base_url']	= 'http://www.helpify.com';
 
 /*
 |--------------------------------------------------------------------------
