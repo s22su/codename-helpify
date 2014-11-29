@@ -78,7 +78,7 @@ class JA_Geocode
 				$this->region_short		= $region->short_name;
 			}
 
-			$city 						= $this->get_component("postal_town");
+			$city 						= $this->get_component("locality");
 
 			if($city)
 			{
