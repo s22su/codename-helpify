@@ -15,13 +15,15 @@ class Facebook_Controller extends CI_Controller {
         $this->load->spark('codeigniter-oauth/0.0.2');
         $result = $this->oauth->authorize_result('facebook');
         if('success' !== $result->status) {
+            $this->session->set_flashdata('message', 'Authentication failed');
             log_message('Authentication failed 1');
-            return;
+            redirect(site_url());
         }
         $auth = $this->oauth->access('facebook', $result->token);
         if('success' !== $auth->status) {
+            $this->session->set_flashdata('message', 'Authentication failed');
             log_message('Authentication failed 2');
-            return;
+            redirect(site_url());
         }
         /**
          * id           10152860440812866
@@ -36,11 +38,11 @@ class Facebook_Controller extends CI_Controller {
          * verified     true
          */
         $user = $auth->user;
-        $this->load->model('users_model');
         $this->load->database();
+        $this->load->model('users_model');
         $result = $this->users_model->getByFacebookId($user->id);
         if(0 === count($result)) {
-            $this->users_model->createWithFacebookData(
+            $this->users_model->existsUserWithFacebookId(
                 array(
                     'facebook_id' => $user->id ? $user->id : null,
                     'email' => $user->email ? $user->email : null,
@@ -51,10 +53,15 @@ class Facebook_Controller extends CI_Controller {
                     'verified' => $user->verified ? $user->verified : null
                 )
             );
-            $result = $this->users_model->getByFacebookId($user->id);
         }
-        var_dump($result);
-        //$this->load->library('Auth_Facebook');
-        //$this->auth_facebook->callback($_SERVER['QUERY_STRING']);
+        $this->authentication->setUserData($user);
+        $this->session->set_flashdata('message', 'Successfully logged in');
+        redirect(site_url());
+    }
+
+    public function logout() {
+        $this->authentication->logout();
+        $this->session->set_flashdata('message', 'Successfully logged out');
+        redirect(site_url());
     }
 }
