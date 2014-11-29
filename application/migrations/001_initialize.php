@@ -22,11 +22,11 @@ class Migration_Initialize extends CI_Migration {
             ),
             'latitude' => array(
                 'type' => 'DECIMAL',
-                'constraint' => '20,4',
+                'constraint' => '20,16',
             ),
             'longitude' => array(
                 'type' => 'DECIMAL',
-                'constraint' => '20,4',
+                'constraint' => '20,16',
             ),
             'description' => array(
                 'type' => 'TEXT',
