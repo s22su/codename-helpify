@@ -11,7 +11,7 @@ class Home extends CI_Controller {
 	}
 	
 	public function index() {
-		
-		$this->twiggy->display();
+		$this->twiggy->template('home')->display();
+		//$this->twiggy->display();
 	}
 }
