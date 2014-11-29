@@ -13,7 +13,8 @@ if ( ! function_exists('geocode')) {
         return array(
             'latitude' => $ci->ja_geocode->lat,
             'longitude' => $ci->ja_geocode->lng,
-            'address' => $ci->ja_geocode->address
+            'city' => $ci->ja_geocode->city,
+            'address' => $ci->ja_geocode->address,
         );
     }
 }
