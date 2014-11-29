@@ -7,20 +7,18 @@
     
     <div class="row fp-main-buttons-container">
 		<div class="col-md-5 centered">
-			<img src="{{base_url}}/assets/images/door2.png" class="img-responsive" alt="">
-			<button class="btn yellowbutton">I need help</button>
+            <a href="{{base_url}}/auth/need-help">
+                <img src="{{base_url}}/assets/images/door2.png" class="img-responsive" alt="">
+                <button class="btn yellowbutton">I need help</button>
+            </a>
 		</div>
 		<div class="col-md-2"></div>
 		<div class="col-md-5 centered">
-			<img src="{{base_url}}/assets/images/door1.png" class="img-responsive" alt="">
-			<button class="btn yellowbutton">I want to help</button>
+            <a href="{{base_url}}/auth/do-help">
+                <img src="{{base_url}}/assets/images/door1.png" class="img-responsive" alt="">
+                <button class="btn yellowbutton">I want to help</button>
+            </a>
 		</div>
-    </div>
-
-    <div class="centered">
-    	{% if user == false %}
-    	<a href="{{base_url}}/auth/facebook"><i class="fa fa-facebook" style="font-size: 30px"></i></a>
-    	{% endif %}
     </div>
 
     <br><br><br><br><br>
