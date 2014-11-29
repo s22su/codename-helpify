@@ -1,7 +1,56 @@
 {% extends "_layouts/main_layout.html.twig" %}
 
 {% block content %}
-
-    Do help
-
+    <div class="row">
+        <h1>{{user.name}}, You Are Helpific!</h1>
+    </div>
+    <hr />
+    <form role="form" action="/do-help" method="post">
+        <div class="row">
+            {% if profile_image %}
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input name="address" type="text" id="address" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input name="city" type="text" id="city" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img src="{{profile_image}}" alt="Profile image of {{user.name}}" />
+                </div>
+            {% else %}
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input name="address" type="text" id="address" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input name="city" type="text" id="city" class="form-control" />
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="hobbies">What are your hobbies?</label>
+                    <textarea name="hobbies" id="hobbies" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="experience">Any past experience being Helpific?</label>
+                    <textarea name="experience" id="experience" class="form-control"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <input type="submit" value="Save and Continue" class="btn btn-default"/>
+            </div>
+        </div>
+    </form>
 {% endblock %}
