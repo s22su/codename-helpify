@@ -20,12 +20,48 @@
 {% block front_doors %}
     
     <div class="front-doors">
-        <div class="left">ein</div>
-        <div class="right">zwei</div>
+
+        <img src="{{base_url}}/assets/images/the_key.png" class="img-responsive keyImage">
+
+        <div class="left">
+
+            <div class="inner-content">
+                <a href="#" class="btn">I NEED HELP</a>
+                
+                <p>
+                    <span class="first-line">State your <strong>NEED</strong></span><br>
+                    <span class="second-line">so you can see the deed</span>
+                    </span>
+                </p>
+                
+                <img src="{{base_url}}/assets/images/door-left.png" class="img-responsive m40top">
+            </div>
+
+        </div>
+        <div class="right">
+            
+            <div class="inner-content">
+                <a href="#" class="btn">I WANT TO HELP</a>
+                
+                <p>
+                    <span class="first-line">Be a <strong>HERO</strong></span><br>
+                    <span class="second-line">in your communiy</span>
+                </p>
+
+                <img src="{{base_url}}/assets/images/door-right.png" class="img-responsive m40top">
+            </div>
+
+        </div>
     </div>
-    
+
 {% endblock %}
 
+
 {% block content %}
+    
+    <br><br><br><br><br><br>
+    <h1 class="centered gray">HOW HELPIFIC WORKS</h1>
+
+    <img src="{{base_url}}/assets/images/how-it-works.png" class="img-responsive m40top">
 
 {% endblock %}
