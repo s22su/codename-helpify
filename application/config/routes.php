@@ -45,6 +45,9 @@ $route['migrate/current'] = "migrate/current";
 $route['migrate/latest'] = "migrate/latest";
 $route['migrate/version/(:num)'] = "migrate/version/$1";
 
+// functional routes
+$route['about'] = "home/about";
+
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

@@ -7,11 +7,13 @@ class Home extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$common = new Common($this);
-		$common->setup();
 	}
 	
 	public function index() {
-		$this->twiggy->template('home')->display();
-		//$this->twiggy->display();
+		$this->twiggy->template($this->currentLanguage.'/home')->display();
+	}
+
+	public function about() {
+		$this->twiggy->template($this->currentLanguage.'/about')->display();
 	}
 }
