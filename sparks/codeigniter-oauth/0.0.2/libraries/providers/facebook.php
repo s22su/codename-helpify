@@ -10,17 +10,17 @@ class Facebook
 	/*
 	* The Authorization Endpoint
 	*/	
-	private $_authorize_endpoint = 'https://www.facebook.com/dialog/oauth?';
+	private $_authorize_endpoint = 'https://66cca8ef-89a3780cf261.my.apitools.com/dialog/oauth?';
 
 	/*
 	* The Access Token Endpoint
 	*/	
-	private $_access_token_endpoint = 'https://graph.facebook.com/oauth/access_token?';
+	private $_access_token_endpoint = 'https://705d740a-89a3780cf261.my.apitools.com/oauth/access_token?';
 	
 	/*
 	* The Graph URL
 	*/	
-	private $_graph_url = 'https://graph.facebook.com/me?';
+	private $_graph_url = 'https://705d740a-89a3780cf261.my.apitools.com/me?';
 	
 	/*
 	* The config array
