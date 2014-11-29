@@ -1,42 +1,31 @@
 {% extends "_layouts/main_layout.html.twig" %}
 
+{% block header_picture %}
+    <div class="header_picture">
+
+        <div class="headline centered">
+          <h1>Helpific - it´s never been easier to give and get help. </h1><br>
+          <h2>Helpific is a person to person platform to create stronger communities. </h2>
+          <a href="#">
+            
+            <img src="{{base_url}}/assets/images/playbutton.png" class="img-responsive centered-margin m40top">
+
+            <h2 class="m20top">Watch video</h2>
+
+          </a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block front_doors %}
+    
+    <div class="front-doors">
+        <div class="left">ein</div>
+        <div class="right">zwei</div>
+    </div>
+    
+{% endblock %}
+
 {% block content %}
-
-    <div id="body">
-    	<span class="centered"><h1>Isn't it easier together</h1></span>
-
-        <div class="row fp-main-buttons-container">
-    		<div class="col-md-5 centered">
-    			<img src="{{base_url}}/assets/images/door2.png" class="img-responsive" alt="">
-    			<button class="btn yellowbutton need-help">I need help</button>
-    		</div>
-    		<div class="col-md-2"></div>
-    		<div class="col-md-5 centered">
-    			<img src="{{base_url}}/assets/images/door1.png" class="img-responsive" alt="">
-    			<button class="btn yellowbutton want-help">I want to help</button>
-    		</div>
-        </div>
-    </div>
-
-    <div id="body-login" class="hide">
-        <div class="centered">
-            {% if user == false %}
-                <h1>Login/signup</h1>
-                <br />
-
-                <div class="row">
-                    <a type="button" href="{{base_url}}/auth/facebook" class="btn btn-primary btn-lg btn-block col-md-8">Facebook</a>
-                </div>
-            {% else %}
-                <h1>Already logged in </h1>
-
-                <div class="row">
-                    Missing flow
-                </div>
-            {% endif %}
-        </div>
-    </div>
-
-    <br><br><br><br><br>
 
 {% endblock %}

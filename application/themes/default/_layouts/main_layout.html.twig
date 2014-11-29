@@ -30,8 +30,6 @@
             <i class="fa fa-bars"></i>
           </button>
 
-          <!-- <a class="navbar-brand" href="{{base_url}}">{{lang_texts.nav_head_text}}</a> -->
-
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -45,9 +43,8 @@
       </div>
     </nav>
 
-    <div class="container header_picture">
-      aa
-    </div>
+    {% block header_picture %}{% endblock %}
+    {% block front_doors %}{% endblock %}
 
     <div class="container main-container">
 
