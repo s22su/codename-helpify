@@ -19,8 +19,7 @@ class Helprequest_Model extends CI_Model {
      * @param  array $filters array of filters
      * @return array found entries
      */
-    function createWithFacebookData($filters = array()) {
-
+    function getHelpRequests($filters = array()) {
     	$this->db->from('help_requests');
 
     	// city filter
@@ -37,14 +36,14 @@ class Helprequest_Model extends CI_Model {
     	if(isset($filters['date']) && $filters['date']) {
     		$this->db->where('date', $filters['city']);
     	}
-        
-        //TODO: pagination
-        
-        
-        $query = $this->db->get();
-        return $query->num_rows() > 0;
 
-        $this->db->insert(self::TABLE, $data);
+    	$res = $this->db->get();
+        
+        if($res->num_rows() === 0) {
+        	return false;
+        }
+
+        return $res->result_array();
     }
 
 }
