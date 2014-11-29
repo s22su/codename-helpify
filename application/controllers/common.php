@@ -8,6 +8,7 @@ class Common {
 		$this->lang   = $controller->lang;
 		$this->uri   = $controller->uri;
 		$this->router = $controller->router;
+		$this->input = $controller->input;
 
 		$this->lang->load('web_texts', 'english');
 
@@ -21,7 +22,9 @@ class Common {
 		$linkClasses = $this->menuLinkActiveClassSwitcher();
 		$this->twiggy->set('menuLinkClasses', $linkClasses);		
 
-		$controller->output->enable_profiler(TRUE);
+		if($this->input->get('dbgHelpific')) {
+			$controller->output->enable_profiler(TRUE);
+		}
 	}
 
 

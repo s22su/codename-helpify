@@ -6,11 +6,13 @@
 @import "compass/reset";
 
 $black: #000;
-$yellow: yellow;
+$yellow: #ffc600;
 
 body {
 	padding-top: 50px;
 	font-family: 'Open Sans', sans-serif;
+	background-color: #eaeaea;
+	color: #000;
 }
 
 // TO DEBUG STUFF :)
@@ -31,6 +33,7 @@ pre {
 }
 
 .helpific-navbar {
+	border-bottom: 3px solid $yellow;
 	background-color: $black;
 	padding: 10px 0;
 
@@ -62,7 +65,26 @@ pre {
 	}
 }
 
-.starter-template {
-	margin-top: 100px;
+h1 {
+	font-size: 2em;
+	font-weight: bold;
+}
+
+.centered {
 	text-align: center;
+}
+
+.fp-main-buttons-container {
+	margin-top: 50px;
+}
+
+.main-container {
+	margin-top: 100px;
+}
+
+button.btn {
+	.yellowbutton {
+		background-color: $black!important;
+		color: $yellow!important;
+	}
 }
