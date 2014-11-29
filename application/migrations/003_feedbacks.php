@@ -1,10 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Migration_Helpifications extends CI_Migration {
-    const TABLE_NAME = 'helpifications';
+class Migration_Feedbacks extends CI_Migration {
+    const TABLE_NAME = 'feedbacks';
 
-    const PRIMARY_KEY = 'helpification_id';
+    const PRIMARY_KEY = 'feedback_id';
 
     public function up()
     {

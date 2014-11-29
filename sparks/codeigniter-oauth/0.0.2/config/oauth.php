@@ -2,12 +2,12 @@
 
 $config = array(
 	'facebook' => array(
-		'client_id' => '',
-		'redirect_uri' => 'http://helpify.com/facebook/',
-		'app_secret' => ''
+		'client_id' => '852629348091625',
+		'redirect_uri' => 'http://www.helpify.com/facebook/',
+		'app_secret' => '632d4a1516881955ce5eb5cecfbe144d'
 	),
 	'twitter' => array(
-		'redirect_uri' => 'http://helpify.com/twitter/',
+		'redirect_uri' => 'http://www.helpify.com/twitter/',
 		'oauth_consumer_key' => '',
 		'consumer_key' => '',
 		'key_secret' => ''	

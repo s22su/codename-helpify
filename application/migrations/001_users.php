@@ -2,11 +2,14 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Migration_Users extends CI_Migration {
+    const TABLE_NAME = 'users';
+
+    const PRIMARY_KEY = 'user_id';
 
     public function up()
     {
         $this->dbforge->add_field(array(
-            'user_id' => array(
+            self::PRIMARY_KEY => array(
                 'type' => 'BIGINT',
                 'unsigned' => TRUE,
                 'auto_increment' => TRUE
@@ -34,12 +37,12 @@ class Migration_Users extends CI_Migration {
             )
         ));
 
-        $this->dbforge->add_key('user_id', TRUE);
-        $this->dbforge->create_table('users');
+        $this->dbforge->add_key(self::PRIMARY_KEY, TRUE);
+        $this->dbforge->create_table(self::TABLE_NAME);
     }
 
     public function down()
     {
-        $this->dbforge->drop_table('users');
+        $this->dbforge->drop_table(self::TABLE_NAME);
     }
 }
