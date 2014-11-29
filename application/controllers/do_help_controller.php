@@ -24,7 +24,7 @@ class Do_Help_Controller extends CI_Controller {
     public function do_help() {
         // Redirect to next step if data already exists
         if($this->helper_profile_model->hasUserActiveHelperProfile($this->user->user_id)) {
-            redirect('/search');
+            redirect('/helprequest');
         }
 
         // Process the submitted information if exists
