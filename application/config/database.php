@@ -48,11 +48,11 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'mysql:host=localhost';
+$db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'helpify';
 $db['default']['password'] = 'cCEPEJExbIdmo1S7wDKnk14F';
 $db['default']['database'] = 'helpify';
-$db['default']['dbdriver'] = 'pdo';
+$db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
 $db['default']['db_debug'] = TRUE;

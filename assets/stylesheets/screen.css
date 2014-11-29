@@ -132,21 +132,32 @@ h1 {
 }
 
 /* line 73, ../sass/screen.scss */
+h2 {
+  font-size: 1.7em;
+  font-weight: bold;
+}
+
+/* line 78, ../sass/screen.scss */
+p {
+  margin: 15px 0;
+}
+
+/* line 82, ../sass/screen.scss */
 .centered {
   text-align: center;
 }
 
-/* line 77, ../sass/screen.scss */
+/* line 86, ../sass/screen.scss */
 .fp-main-buttons-container {
   margin-top: 50px;
 }
 
-/* line 81, ../sass/screen.scss */
+/* line 90, ../sass/screen.scss */
 .main-container {
   margin-top: 100px;
 }
 
-/* line 86, ../sass/screen.scss */
+/* line 95, ../sass/screen.scss */
 button.btn .yellowbutton {
   background-color: #000 !important;
   color: #ffc600 !important;
