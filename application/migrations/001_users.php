@@ -1,14 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Migration_Initialize extends CI_Migration {
+class Migration_Users extends CI_Migration {
 
     public function up()
     {
         $this->dbforge->add_field(array(
             'user_id' => array(
-                'type' => 'INT',
-                'constraint' => 5,
+                'type' => 'BIGINT',
                 'unsigned' => TRUE,
                 'auto_increment' => TRUE
             ),
@@ -21,25 +20,26 @@ class Migration_Initialize extends CI_Migration {
                 'constraint' => '255',
             ),
             'latitude' => array(
-                'type' => 'DECIMAL',
-                'constraint' => '20,16',
+                'type' => 'POINT'
             ),
             'longitude' => array(
-                'type' => 'DECIMAL',
-                'constraint' => '20,16',
+                'type' => 'POINT'
             ),
             'description' => array(
                 'type' => 'TEXT',
                 'null' => TRUE,
             ),
+            'created_at' => array(
+                'type' => 'TIMESTAMP DEFAULT CURRENT_TIMESTAMP'
+            )
         ));
 
         $this->dbforge->add_key('user_id', TRUE);
-        $this->dbforge->create_table('user');
+        $this->dbforge->create_table('users');
     }
 
     public function down()
     {
-        $this->dbforge->drop_table('user');
+        $this->dbforge->drop_table('users');
     }
 }

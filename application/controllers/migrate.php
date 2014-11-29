@@ -11,16 +11,16 @@ class Migrate extends CI_Controller {
 
     public function current()
     {
-        $this->migration->current();
+        var_export($this->migration->current());
     }
 
     public function latest()
     {
-        $this->migration->latest();
+        var_export($this->migration->latest());
     }
 
     public function version()
     {
-        $this->migration->version($this->uri->segment(3));
+        var_export($this->migration->version($this->uri->segment(3)));
     }
 }
