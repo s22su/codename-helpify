@@ -46,6 +46,16 @@ class Do_Help_Controller extends CI_Controller {
     }
 
     protected function input($post) {
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('city', 'City', 'trim|required|min_length[1]|max_length[64]|xss_clean');
+        $this->form_validation->set_rules('address', 'Address', 'trim|required|min_length[1]|max_length[64]|xss_clean');
+        $this->form_validation->set_rules('hobbies', 'Hobbies', 'trim|max_length[1024]|xss_clean');
+        $this->form_validation->set_rules('experience', 'Experience', 'trim|max_length[1024]|xss_clean');
+
+        if(false === $this->form_validation->run()) {
+            return false;
+        }
+
         $this->load->helper('geocode_helper');
         $geocode = geocode($this->input->post('address'), $this->input->post('city'));
 
