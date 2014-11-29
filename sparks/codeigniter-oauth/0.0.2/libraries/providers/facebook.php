@@ -10,7 +10,7 @@ class Facebook
 	/*
 	* The Authorization Endpoint
 	*/	
-	private $_authorize_endpoint = 'https://66cca8ef-89a3780cf261.my.apitools.com/dialog/oauth?';
+	private $_authorize_endpoint = 'https://www.facebook.com/dialog/oauth?';
 
 	/*
 	* The Access Token Endpoint
@@ -130,12 +130,7 @@ class Facebook
 			$user = json_decode(file_get_contents($graph_url));
 
 			return $this->oauth->response('success', array(
-					'user' => array(
-						'id'		=> $user->id,
-						'name'		=> $user->name,
-						'username'	=> $user->username,
-						'email'		=> $user->email
-					)
+					'user' => $user
 				)
 			);
 		}
