@@ -62,5 +62,7 @@ $route['about'] = "home/about";
 $route['helprequest'] = "helprequest/index";
 $route['helprequest/add'] = "helprequest/add";
 
+$route['helper/(:num)'] = 'helper_profile_controller/view';
+
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

@@ -11,7 +11,6 @@
     <title> {{ lang_texts.site_title }} </title>
 
     <link href="{{base_url}}/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="{{base_url}}/assets/vendor/bootstrap-accessibility-plugin/plugins/css/bootstrap-accessibility_1.0.3.css" rel="stylesheet">
     <link href="{{base_url}}/assets/vendor/bootstrap-datepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -51,11 +50,32 @@
       {% block content %}{% endblock %}
 
     </div><!-- /.container -->
+
+      <footer>
+        <div class="container footer-container">
+        
+        <div class="row centered icons">
+        
+          <a href="https://www.facebook.com/Helpific" target="_blank"><i class="fa fa-facebook-square"></i></a>
+          
+          <a href="https://twitter.com/helpific" target="_blank"><i class="fa fa-twitter-square"></i></a>
+
+        </div>
+
+        <div class="garage-logo"><a href="http://garage48.org" target="_blank" class="pull-right"><img src="{{base_url}}/assets/images/garage48_logo.png" alt="Garage48"></a></div>
+        
+        <div class="row">
+          <h3 class="centered">Isn't it easier together</h3>
+        </div>
+
+        </div>
+      </footer>
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="{{base_url}}/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment-with-locales.min.js"></script>
     <script src="{{base_url}}/assets/vendor/bootstrap-datepicker/js/bootstrap-datetimepicker.min.js"></script>
-    <script src="{{base_url}}/assets/vendor/bootstrap-accessibility-plugin/plugins/js/bootstrap-accessibility_1.0.3.min.js"></script>
     <script src="{{base_url}}/assets/js/main.js"></script>
   </body>
 </html>

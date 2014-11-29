@@ -67,7 +67,7 @@ class Do_Help_Controller extends CI_Controller {
         $this->helper_profile_model->insert(
             array(
                 'user_id' => $this->user->user_id,
-                'city' => $this->input->post('city'),
+                'city' => $geocode['city'],
                 'address' => $this->input->post('address'),
                 'address_formatted' => $geocode['address'],
                 'lat' => $geocode['latitude'],
