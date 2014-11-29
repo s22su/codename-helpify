@@ -41,6 +41,10 @@
 $route['default_controller'] = "home";
 $route['404_override'] = '';
 
+$route['migrate/current'] = "migrate/current";
+$route['migrate/latest'] = "migrate/latest";
+$route['migrate/version/(:num)'] = "migrate/version/$1";
+
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
