@@ -40,9 +40,8 @@ class Facebook_Controller extends CI_Controller {
         $user = $auth->user;
         $this->load->database();
         $this->load->model('users_model');
-        $result = $this->users_model->getByFacebookId($user->id);
-        if(0 === count($result)) {
-            $this->users_model->existsUserWithFacebookId(
+        if(false === $this->users_model->existsUserWithFacebookId($user->id)) {
+            $this->users_model->createWithFacebookData(
                 array(
                     'facebook_id' => $user->id ? $user->id : null,
                     'email' => $user->email ? $user->email : null,
