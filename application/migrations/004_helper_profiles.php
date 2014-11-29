@@ -41,6 +41,14 @@ class Migration_Helper_Profiles extends CI_Migration {
                 'type' => 'FLOAT',
                 'null' => TRUE,
             ),
+            'hobbies' => array(
+                'type' => 'TEXT',
+                'null' => TRUE,
+            ),
+            'experience' => array(
+                'type' => 'TEXT',
+                'null' => TRUE,
+            ),
             'created_at' => array(
                 'type' => 'TIMESTAMP DEFAULT CURRENT_TIMESTAMP'
             ),
