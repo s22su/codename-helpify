@@ -1,24 +1,40 @@
 {% extends "_layouts/main_layout.html.twig" %}
 
 {% block content %}
-	
-	<span class="centered"><h1>Isn't it easier together</h1></span>
-	
-    
-    <div class="row fp-main-buttons-container">
-		<div class="col-md-5 centered">
-            <a href="{{base_url}}/auth/need-help">
-                <img src="{{base_url}}/assets/images/door2.png" class="img-responsive" alt="">
-                <button class="btn yellowbutton">I need help</button>
-            </a>
-		</div>
-		<div class="col-md-2"></div>
-		<div class="col-md-5 centered">
-            <a href="{{base_url}}/auth/do-help">
-                <img src="{{base_url}}/assets/images/door1.png" class="img-responsive" alt="">
-                <button class="btn yellowbutton">I want to help</button>
-            </a>
-		</div>
+
+    <div id="body">
+    	<span class="centered"><h1>Isn't it easier together</h1></span>
+
+        <div class="row fp-main-buttons-container">
+    		<div class="col-md-5 centered">
+    			<img src="{{base_url}}/assets/images/door2.png" class="img-responsive" alt="">
+    			<button class="btn yellowbutton need-help">I need help</button>
+    		</div>
+    		<div class="col-md-2"></div>
+    		<div class="col-md-5 centered">
+    			<img src="{{base_url}}/assets/images/door1.png" class="img-responsive" alt="">
+    			<button class="btn yellowbutton want-help">I want to help</button>
+    		</div>
+        </div>
+    </div>
+
+    <div id="body-login" class="hide">
+        <div class="centered">
+            {% if user == false %}
+                <h1>Login/signup</h1>
+                <br />
+
+                <div class="row">
+                    <a type="button" href="{{base_url}}/auth/facebook" class="btn btn-primary btn-lg btn-block col-md-8">Facebook</a>
+                </div>
+            {% else %}
+                <h1>Already logged in </h1>
+
+                <div class="row">
+                    Missing flow
+                </div>
+            {% endif %}
+        </div>
     </div>
 
     <br><br><br><br><br>
