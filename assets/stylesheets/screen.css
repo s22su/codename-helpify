@@ -67,13 +67,63 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-/* line 8, ../sass/screen.scss */
+/* line 11, ../sass/screen.scss */
 body {
   padding-top: 50px;
+  font-family: 'Open Sans', sans-serif;
 }
 
-/* line 11, ../sass/screen.scss */
+/* line 18, ../sass/screen.scss */
+pre {
+  z-index: 3000 !important;
+  display: block !important;
+  background-color: #000;
+  color: yellow;
+  border-radius: 0;
+  margin-top: 50px;
+  padding: 10px;
+}
+
+/* line 29, ../sass/screen.scss */
+.container {
+  max-width: 900px;
+}
+
+/* line 33, ../sass/screen.scss */
+.helpific-navbar {
+  background-color: #000;
+  padding: 10px 0;
+}
+/* line 37, ../sass/screen.scss */
+.helpific-navbar a {
+  color: yellow;
+}
+/* line 41, ../sass/screen.scss */
+.helpific-navbar a:hover, .helpific-navbar li:hover {
+  background-color: yellow !important;
+  color: #000;
+}
+/* line 46, ../sass/screen.scss */
+.helpific-navbar li {
+  margin-left: 10px;
+}
+/* line 50, ../sass/screen.scss */
+.helpific-navbar li {
+  border: 3px solid #000;
+}
+/* line 54, ../sass/screen.scss */
+.helpific-navbar li.active {
+  border-color: yellow;
+  border: 3px solid yellow;
+}
+/* line 59, ../sass/screen.scss */
+.helpific-navbar .navbar-toggle {
+  color: yellow;
+  font-size: 1.7em;
+}
+
+/* line 65, ../sass/screen.scss */
 .starter-template {
-  padding: 40px 15px;
+  margin-top: 100px;
   text-align: center;
 }

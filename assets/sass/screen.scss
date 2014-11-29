@@ -5,10 +5,64 @@
 
 @import "compass/reset";
 
+$black: #000;
+$yellow: yellow;
+
 body {
-  padding-top: 50px;
+	padding-top: 50px;
+	font-family: 'Open Sans', sans-serif;
 }
+
+// TO DEBUG STUFF :)
+
+pre {
+	z-index: 3000!important;
+	display: block!important;
+	//position: absolute;
+	background-color: $black;
+	color: $yellow;
+	border-radius: 0;
+	margin-top: 50px;
+	padding: 10px;
+}
+
+.container {
+	max-width: 900px;
+}
+
+.helpific-navbar {
+	background-color: $black;
+	padding: 10px 0;
+
+	a {
+		color: $yellow;
+	}
+
+	a:hover, li:hover {
+		background-color: $yellow !important;
+		color: $black;
+	}
+
+	li {
+		margin-left: 10px;
+	}
+	
+	li {
+		border: 3px solid $black;
+	}
+
+	li.active {
+		border-color: $yellow;
+		border: 3px solid $yellow;
+	}
+
+	.navbar-toggle {
+		color: $yellow;
+		font-size: 1.7em;
+	}
+}
+
 .starter-template {
-  padding: 40px 15px;
-  text-align: center;
+	margin-top: 100px;
+	text-align: center;
 }

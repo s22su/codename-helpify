@@ -49,6 +49,9 @@ $route['auth/facebook'] = "facebook_controller/authentication";
 $route['facebook'] = 'facebook_controller/callback';
 $route['logout'] = 'facebook_controller/logout';
 
+// functional routes
+$route['about'] = "home/about";
+
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
