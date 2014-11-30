@@ -34,4 +34,11 @@ class Helper_To_Help_Request_Model extends CI_Model {
         }
         return $results;
     }
+
+    public function userAssociatedWithRequest($userId, $requestId) {
+        $this->db->from(self::TABLE);
+        $this->db->where('do_help_user_id', $userId);
+        $this->db->where('help_request_id', $requestId);
+        return $this->db->count_all_results() > 0;
+    }
 }
