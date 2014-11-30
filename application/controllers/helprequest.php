@@ -86,12 +86,25 @@ class Helprequest extends CI_Controller {
 
 			$entries = $this->helprequest_model->addHelpRequest($formData);
 
-			redirect(site_url('/helprequest'));
+			redirect(site_url('/my_helprequests'));
 		}
 
 		$this->twiggy->set('now', date('m/d/Y', time()));
 		$this->twiggy->set('view_url', site_url('/helprequest/view'));
         $this->twiggy->template($this->currentLanguage .'/help_request.add')->display();
+	}
+
+
+	public function my_helprequests() {
+		$this->load->model('helprequest_model');
+
+		$my = $this->helprequest_model->getHelpRequestsByUserId(
+			$this->authentication->getUserData()->user_id
+		);
+
+		$this->twiggy->set('entries', $my);
+		$this->twiggy->template($this->currentLanguage .'/helprequest.my')->display();
+
 	}
 
 	public function view ()	{
@@ -120,6 +133,14 @@ class Helprequest extends CI_Controller {
 
         $this->load->model('helper_to_help_request_model');
         $this->twiggy->set('shownotify', !$this->helper_to_help_request_model->userAssociatedWithRequest($user->user_id, $helpRequest->id));
+        $this->load->driver('cache', array('adapter' => 'apc', 'backup' => 'file'));
+        $cacheId = 'facebook_profileimage_' . $user->facebook_id;
+        $this->load->library('facebook');
+        if(! $profileImage = $this->cache->file->get($cacheId)) {
+            $profileImage = $this->facebook->getProfilePictureUrl($user->facebook_id, 300, 300);
+            $this->cache->file->save($cacheId, $profileImage);
+        }
+        $this->twiggy->set('profile_image', $profileImage);
 		$this->twiggy->set('record', TRUE);
 		$this->twiggy->set('request_user', $user);
 		$this->twiggy->set('request', $helpRequest);
