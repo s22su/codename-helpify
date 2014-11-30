@@ -59,6 +59,7 @@ $route['logout'] = 'facebook_controller/logout';
 
 // functional routes
 $route['about'] = "home/about";
+$route['team'] = "home/team";
 $route['helprequest'] = "helprequest/index";
 $route['my_helprequests'] = "helprequest/my_helprequests";
 $route['helprequest/(:num)/notify'] = "helprequest/notify";
