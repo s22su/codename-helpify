@@ -79,11 +79,15 @@
 
 								<div class="info">
 									<h2 class="title">{{entry.name}}</h2>
-									{%if entry.description %}
-										<p class="desc">{{entry.description}}</p>
+
+									<p class="desc">Location: {{entry.address_formatted}}</p>
+
+									{%if entry.hr_description %}
+										<p class="desc italic">{{entry.hr_description_short}}</p>
 									{% else %}
 										<p class="desc italic">No description available</p>
 									{% endif %}
+
 
 								</div>
 
@@ -100,7 +104,7 @@
 			</div>
 
 		{% else %}
-			nothing found
+			<div class="alert alert-danger" role="alert">No matches found for your search</div>
 		{% endif %}
 	{% endif %}
 

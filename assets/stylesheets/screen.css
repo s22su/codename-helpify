@@ -378,6 +378,10 @@ footer .garage-logo {
   margin-top: -65px;
 }
 
+.header-logo {
+  margin-top: 10px;
+}
+
 /* line 1, ../sass/listing.scss */
 .event-list {
   list-style: none;

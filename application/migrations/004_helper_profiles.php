@@ -23,6 +23,16 @@ class Migration_Helper_Profiles extends CI_Migration {
                 'null' => TRUE,
                 'constraint' => '255',
             ),
+            'address' => array(
+                'type' => 'VARCHAR',
+                'null' => TRUE,
+                'constraint' => '255',
+            ),
+            'address_formatted' => array(
+                'type' => 'VARCHAR',
+                'null' => TRUE,
+                'constraint' => '255',
+            ),
             'lat' => array(
                 'type' => 'DECIMAL',
                 'constraint' => '20,16',

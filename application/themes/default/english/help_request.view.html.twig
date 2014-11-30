@@ -1,6 +1,7 @@
 {% extends "_layouts/main_layout.html.twig" %}
 
 {% block content %}
+    {% if record %}
     <h1>Will you help {{request_user.name}} with</h1>
     <h2>...{{request.category}}?</h2>
     <hr />
@@ -53,4 +54,8 @@
     </div>
     <hr />
     <hr />
+    
+    {%else%}
+    <div class="alert alert-danger" role="alert">This entry does not exist.</div>
+    {%endif%}
 {% endblock %}

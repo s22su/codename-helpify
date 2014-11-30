@@ -19,7 +19,7 @@ class Helprequest_Model extends CI_Model {
      * @return array found entries
      */
     function getHelpRequests($filters = array()) {
-    	$this->db->from('help_requests');
+    	$this->db->select("*, help_requests.description AS hr_description")->from('help_requests');
 
     	// city filter
     	if(isset($filters['city']) && $filters['city']) {
@@ -51,6 +51,11 @@ class Helprequest_Model extends CI_Model {
         $rows = $res->result_array();
         foreach($rows as &$row) {
         	$row['converted_date'] = $this->convertTimestamp($row['date']);
+            $row['hr_description_short'] = $row['hr_description'];
+
+            if (strlen($row['hr_description_short']) > 50) {
+                $row['hr_description_short'] = substr($row['hr_description_short'], 0, 50).'...';
+            }
         }
 
         return $rows;
