@@ -33,8 +33,12 @@ class Helprequest_Model extends CI_Model {
     	}
 
 		// date filter
-    	if(isset($filters['date']) && $filters['date']) {
-    		$this->db->where('date', $filters['city']);
+        if(isset($filters['date_start']) && $filters['date_start']) {
+            $this->db->where('date >=', $filters['date_start']);
+        }
+
+        if(isset($filters['date_end']) && $filters['date_end']) {
+    		$this->db->where('date <=', $filters['date_end']);
     	}
 
     	$this->db->join('users', 'users.user_id = help_requests.user_id');
@@ -52,6 +56,34 @@ class Helprequest_Model extends CI_Model {
 
         return $rows;
     }
+
+    /**
+     * Get user help requests by user ID
+     * @param  int $id [description]
+     * @return array
+     */
+    function getHelpRequestsByUserId($user_id) {
+        $this->db->from('help_requests');
+        $this->db->where('user_id', $user_id);
+
+        $res = $this->db->get();
+
+        if($res->num_rows() === 0) {
+            return false;
+        }
+
+        $rows = $res->result_array();
+        foreach($rows as &$row) {
+            $row['converted_date'] = $this->convertTimestamp($row['date']);
+            //$row['converted_created_at'] = $this->convertTimestamp($row['created_at']);
+        }
+
+        //pre($rows);
+
+        return $rows;
+    }
+
+
 
     private function convertTimestamp($timestamp) {
     	$arr = array(

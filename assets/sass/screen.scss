@@ -15,18 +15,19 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	background-color: #fff;
 	color: #4c4c4c;
+	gangam: #style;
 }
 
 // input override
 input[type="text"], textarea, select {
-	border: 2px solid #4c4c4c !important;
+	border: 1px solid #4c4c4c !important;
 	border-radius: 0!important;
 	-webkit-border-radius: 0!important;
 }
 
 .input-group-addon {
 	border-color: #4c4c4c !important;
-	border-width: 2px;
+	border-width: 1px;
 	border-radius: 0!important;
 }
 
@@ -60,6 +61,10 @@ pre {
 	//padding: 10px 0;
 	background-color: #fff;
 	height: 100px !important;
+
+	.loggedLink {
+		text-decoration: underline!important;
+	}
 
 	a {
 		color:  #05aad7;
@@ -161,7 +166,7 @@ button.btn {
 
 	h2 {
 		font-size: 20px;
-	} 
+	}
 }
 
 .person-row {
@@ -226,6 +231,14 @@ button.btn {
 		text-align: center;
 		cursor: pointer;
 
+	    transition: all 0.5s ease;
+	    -moz-transition: all 0.5s ease;
+	    -webkit-transition: all 0.5s ease;
+
+		&:hover {
+			background-color: #1292B5;
+		}
+
 		.inner-content {
 			img {
 				margin: 0 auto;
@@ -242,6 +255,14 @@ button.btn {
 		background-color:  #a3b930;
 		text-align: center;
 		cursor: pointer;
+
+	    transition: all 0.5s ease;
+	    -moz-transition: all 0.5s ease;
+	    -webkit-transition: all 0.5s ease;
+
+		&:hover {
+			background-color: #B0CA2B;
+		}
 
 		.inner-content {
 			img {

@@ -5,7 +5,6 @@ class Helper_To_Help_Request_Model extends CI_Model {
     var $id;
     var $do_help_user_id;
     var $help_request_id;
-    var $description;
     var $accepted;
     var $created_at;
 
@@ -33,5 +32,12 @@ class Helper_To_Help_Request_Model extends CI_Model {
             $results[] = $row;
         }
         return $results;
+    }
+
+    public function userAssociatedWithRequest($userId, $requestId) {
+        $this->db->from(self::TABLE);
+        $this->db->where('do_help_user_id', $userId);
+        $this->db->where('help_request_id', $requestId);
+        return $this->db->count_all_results() > 0;
     }
 }

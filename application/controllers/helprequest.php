@@ -14,7 +14,7 @@ class Helprequest extends CI_Controller {
         }
 
 		new Common($this);
-    }
+	}
 
 	public function index() {
 		// pre($this->authentication->getUserData());
@@ -35,12 +35,15 @@ class Helprequest extends CI_Controller {
 			}
 
 			// date filter
-			if($this->input->get('date')) {
-				$filters['date'] = $this->input->get('date');
+			if($this->input->get('date_start')) {
+				$filters['date_start'] = strtotime($this->input->get('date_start'));
+			}
+
+			if($this->input->get('date_start')) {
+				$filters['date_start'] = strtotime($this->input->get('date_start'));
 			}
 
 			$entries = $this->helprequest_model->getHelpRequests($filters);
-
 
 			$this->twiggy->set('entries', $entries);
 			$this->twiggy->set('submitted', 1);
@@ -49,13 +52,13 @@ class Helprequest extends CI_Controller {
         $this->load->model('helprequest_model');
         $this->twiggy->set('cities', $this->helprequest_model->getCitiesWithHelpRequests());
 
-        $this->twiggy->set('now', date('m/d/Y', time()));
+		$this->twiggy->set('now', date('m/d/Y', time()));
 		$this->twiggy->template($this->currentLanguage.'/helprequest.index')->display();
 	}
 
 	public function add() {
 
-        // TODO: hardcoded also, should add the field in database
+		// TODO: hardcoded also, should add the field in database
 		$country = 'Estonia';
 
 		if($this->input->post()) {
@@ -83,12 +86,25 @@ class Helprequest extends CI_Controller {
 
 			$entries = $this->helprequest_model->addHelpRequest($formData);
 
-			redirect(site_url('/helprequest'));
+			redirect(site_url('/my_helprequests'));
 		}
 
 		$this->twiggy->set('now', date('m/d/Y', time()));
 		$this->twiggy->set('view_url', site_url('/helprequest/view'));
         $this->twiggy->template($this->currentLanguage .'/help_request.add')->display();
+	}
+
+
+	public function my_helprequests() {
+		$this->load->model('helprequest_model');
+
+		$my = $this->helprequest_model->getHelpRequestsByUserId(
+			$this->authentication->getUserData()->user_id
+		);
+
+		$this->twiggy->set('entries', $my);
+		$this->twiggy->template($this->currentLanguage .'/helprequest.my')->display();
+
 	}
 
 	public function view ()	{
@@ -115,10 +131,58 @@ class Helprequest extends CI_Controller {
 			$this->twiggy->set('record', FALSE);
 		}
 
-        $this->twiggy->set('record', TRUE);
+        $this->load->model('helper_to_help_request_model');
+        $this->load->driver('cache', array('adapter' => 'apc', 'backup' => 'file'));
+        $cacheId = 'facebook_profileimage_' . $user->facebook_id;
+        $this->load->library('facebook');
+        if(! $profileImage = $this->cache->file->get($cacheId)) {
+            $profileImage = $this->facebook->getProfilePictureUrl($user->facebook_id, 300, 300);
+            $this->cache->file->save($cacheId, $profileImage);
+        }
+
+        $this->load->model('help_request_message');
+        $this->twiggy->set('messages', $this->help_request_message->listHelpRequestMessagesForHelper($helpRequest->id, $user->user_id));
+
+        $this->twiggy->set('profile_image', $profileImage);
+		$this->twiggy->set('record', TRUE);
 		$this->twiggy->set('request_user', $user);
 		$this->twiggy->set('request', $helpRequest);
 
 		$this->twiggy->template($this->currentLanguage .'/help_request.view')->display();
 	}
+
+    public function notify() {
+        $user = $this->authentication->getUserData();
+        $viewingUserId = $user->user_id;
+        $helprequestId = $this->uri->segment(2);
+
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('description', 'description', 'trim|required|min_length[1]|max_length[1024]|xss_clean');
+
+        if(false === $this->form_validation->run()) {
+            redirect('/helprequest');
+        }
+
+        $data = array(
+          'do_help_user_id' => $viewingUserId,
+          'help_request_id' => $helprequestId,
+          'accepted' => '0'
+        );
+        $this->load->model('helper_to_help_request_model');
+
+        if(!$this->helper_to_help_request_model->userAssociatedWithRequest($viewingUserId, $helprequestId)) {
+            $this->helper_to_help_request_model->insert($data);
+        }
+
+        $this->load->model('help_request_message');
+        $this->help_request_message->insert(
+            array(
+                'help_request_id' => $helprequestId,
+                'user_id' => $viewingUserId,
+                'description' => $this->input->post('description')
+            )
+        );
+
+        redirect('/helprequest/view/' . $helprequestId);
+    }
 }

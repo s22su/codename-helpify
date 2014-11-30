@@ -1,0 +1,51 @@
+{% extends "_layouts/main_layout.html.twig" %}
+
+{% block content %}
+
+	{% if entries %}
+
+		<div class="row">
+			<div class="col-xs-12 col-sm-10 col-sm-offset-1">
+
+			<h1 class="centered">My help requests</h1><br><br>
+
+				<ul class="event-list">
+
+					{% for entry in entries %}
+
+						<li>
+							<time datetime="{{entry.converted_date.dateY}}">
+								<span class="day">{{entry.converted_date.day}}</span>
+								<span class="month">{{entry.converted_date.monthName3}}</span>
+								<span class="year">{{entry.converted_date.year}}</span>
+								<span class="time">ALL DAY</span>
+							</time>
+
+							<div class="info">
+								<h2 class="title">Add time: {{entry.created_at}}</h2>
+								<p class="desc">Location: {{entry.address}}</p>
+								{%if entry.description %}
+									<p class="desc">{{entry.description}}</p>
+								{% else %}
+									<p class="desc italic">No description available</p>
+								{% endif %}
+
+							</div>
+
+							<div class="viewButton">
+								<a class="btn btn-lg btn-success" href="/helprequest/view/{{ entry.id }}">Edit</a>
+								<a class="btn btn-lg btn-success" href="/helprequest/view/{{ entry.id }}">View</a>
+							</div>
+
+						</li>
+
+					{% endfor %}
+
+				</ul>
+			</div>
+		</div>
+
+	{% else %}
+		nothing found
+	{% endif %}
+{%endblock%}

@@ -38,6 +38,7 @@ class Common {
 		$linkClasses = array(
 			'about' => '',
 			'home' => '',
+			'team' => ''
 		);
 
 		//pre($this->router);
@@ -49,6 +50,9 @@ class Common {
 				switch($this->router->method) {
 					case 'about':
 						$linkClasses['about'] = 'active';
+					break;
+					case 'team':
+						$linkClasses['team'] = 'active';
 					break;
 					default:
 						$linkClasses['home'] = 'active';
