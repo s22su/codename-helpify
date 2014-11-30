@@ -148,10 +148,15 @@ button.btn {
 
 .header_picture {
 	margin-top: 51px;
-	background-image: url(../images/header.png);
+	//background-image: url(../images/header.png);
+	background-image: url(../images/header2.jpg);
 	height: 399px;
 	background-color: #ccc;
 	width: 100%;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 
 	h1, h2 {
 		color: #fff;
