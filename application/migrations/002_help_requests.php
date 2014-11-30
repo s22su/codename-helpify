@@ -23,6 +23,10 @@ class Migration_Help_requests extends CI_Migration {
                 'null' => TRUE,
                 'constraint' => '255',
             ),
+            'description' => array(
+                'type' => 'TEXT',
+                'null' => TRUE,
+            ),
             'city' => array(
                 'type' => 'VARCHAR',
                 'null' => TRUE,

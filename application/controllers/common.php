@@ -10,10 +10,14 @@ class Common {
 		$this->router = $controller->router;
 		$this->input = $controller->input;
 		$this->user = $controller->authentication->getUserData();
+		$this->load = $controller->load;
 
+		// TODO: needs caching
+		$controller->load->model('users_model');
 		$this->lang->load('web_texts', 'english');
 
 		// set global template vars
+		$this->twiggy->set('users', $controller->users_model->getUserCount());
 		$this->twiggy->set('base_url', $this->config->item('base_url'));
 		$this->twiggy->set('language', 'english');
 		$this->twiggy->set('lang_texts', $this->lang->language);

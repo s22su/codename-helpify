@@ -45,12 +45,12 @@
                   <li><a href="{{base_url}}/logout">Logout</a></li>
                 </ul>
             </li>
-            
-            <!-- <li><a href="{{base_url}}/logout">Notifications <span class="badge centered">0</span></a></li> -->
+
             {%endif%}
           </ul>
 
           <ul class="nav navbar-nav pull-right">
+            <li><a href="#"><small>Total users:</small> {{ users }}</a></li>
             <li><a href="{{ base_url }}/et"><img src="/assets/images/et.png" alt="Vaata veebilehte eesti keeles" /></a></li>
           </ul>
         </div><!--/.nav-collapse -->

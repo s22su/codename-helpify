@@ -6,12 +6,12 @@ class Helprequest extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 
-        	// Deny if not authenticated
-        	if(false === $this->authentication->isLoggedIn())
-        	{
-        	    log_message('warning', 'Unauthenticated user attempted to access profile page');
-        	    redirect(site_url());
-        	}
+        // Deny if not authenticated
+        if(false === $this->authentication->isLoggedIn())
+        {
+            log_message('warning', 'Unauthenticated user attempted to access profile page');
+            redirect(site_url());
+        }
 
 		new Common($this);
 	}
@@ -49,8 +49,8 @@ class Helprequest extends CI_Controller {
 			$this->twiggy->set('submitted', 1);
 		}
 
-        	$this->load->model('helprequest_model');
-        	$this->twiggy->set('cities', $this->helprequest_model->getCitiesWithHelpRequests());
+        $this->load->model('helprequest_model');
+        $this->twiggy->set('cities', $this->helprequest_model->getCitiesWithHelpRequests());
 
 		$this->twiggy->set('now', date('m/d/Y', time()));
 		$this->twiggy->template($this->currentLanguage.'/helprequest.index')->display();
@@ -69,18 +69,20 @@ class Helprequest extends CI_Controller {
 			$user = $this->authentication->getUserData();
 
 			$formData = array(
-				'user_id'   => $user->user_id,
-				'category'  => $this->input->post('category', true) ?: null,
-				'date'      => strtotime($this->input->post('date', true)) ?: time(),
-				'city'      => $this->input->post('city', true) ?: null,
-				'is_active' => true,
+				'user_id'     => $user->user_id,
+				'category'    => $this->input->post('category', true) ?: null,
+				'date'        => strtotime($this->input->post('date', true)) ?: time(),
+				'city'        => $this->input->post('city', true) ?: null,
+				'description' => $this->input->post('desc', true) ?: null,
+				'is_active'   => true,
 			);
 
 			// Geocode, OMFG so safe
-	        $this->ja_geocode->query($country .' '. $formData['city'] .' '. $formData['city']);
+			$address = $this->ja_geocode->query($country .' '. $formData['city'] .' '. $formData['city']);
 
 			$formData['lat'] = $this->ja_geocode->lat;
 			$formData['lon'] = $this->ja_geocode->lng;
+			$formData['address_formatted'] = $this->ja_geocode->address;
 
 			$entries = $this->helprequest_model->addHelpRequest($formData);
 
@@ -89,7 +91,7 @@ class Helprequest extends CI_Controller {
 
 		$this->twiggy->set('now', date('m/d/Y', time()));
 		$this->twiggy->set('view_url', site_url('/helprequest/view'));
-        	$this->twiggy->template($this->currentLanguage .'/help_request.add')->display();
+        $this->twiggy->template($this->currentLanguage .'/help_request.add')->display();
 	}
 
 
@@ -121,30 +123,29 @@ class Helprequest extends CI_Controller {
 		$this->load->model('users_model');
 
 		$helpRequest = $this->helprequest_model->getById($view_id);
-		$helpRequestUser        = $this->users_model->getById($helpRequest->user_id);
-        $loggedInUser = $this->authentication->getUserData();
+		$user        = $this->users_model->getById($helpRequest->user_id);
 
 		// Handle error
-		if (!$helpRequest || !$helpRequest->user_id || $helpRequestUser) {
+		if (!$helpRequest || !$helpRequest->user_id || $user) {
 
 			$this->twiggy->set('record', FALSE);
 		}
 
         $this->load->model('helper_to_help_request_model');
         $this->load->driver('cache', array('adapter' => 'apc', 'backup' => 'file'));
-        $cacheId = 'facebook_profileimage_' . $helpRequestUser->facebook_id;
+        $cacheId = 'facebook_profileimage_' . $user->facebook_id;
         $this->load->library('facebook');
         if(! $profileImage = $this->cache->file->get($cacheId)) {
-            $profileImage = $this->facebook->getProfilePictureUrl($helpRequestUser->facebook_id, 300, 300);
+            $profileImage = $this->facebook->getProfilePictureUrl($user->facebook_id, 300, 300);
             $this->cache->file->save($cacheId, $profileImage);
         }
 
         $this->load->model('help_request_message');
-        $this->twiggy->set('messages', $this->help_request_message->listHelpRequestMessagesForHelper($helpRequest->id, $loggedInUser->user_id));
+        $this->twiggy->set('messages', $this->help_request_message->listHelpRequestMessagesForHelper($helpRequest->id, $user->user_id));
 
         $this->twiggy->set('profile_image', $profileImage);
 		$this->twiggy->set('record', TRUE);
-		$this->twiggy->set('request_user', $helpRequestUser);
+		$this->twiggy->set('request_user', $user);
 		$this->twiggy->set('request', $helpRequest);
 
 		$this->twiggy->template($this->currentLanguage .'/help_request.view')->display();
