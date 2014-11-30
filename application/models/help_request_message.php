@@ -17,10 +17,12 @@ class Help_request_message extends CI_Model {
 
     public function listHelpRequestMessagesForHelper($helpRequestId, $helperId) {
         if(empty($helpRequestId)) {
-            throw new ApplicationException('Help Request ID required');
+            //throw new ApplicationException('Help Request ID required');
+            return false;
         }
         if(empty($helperId)) {
-            throw new ApplicationException('User ID required');
+            //throw new ApplicationException('User ID required');
+            return false;
         }
         $helpRequestId = $this->db->escape($helpRequestId);
         $helperId = $this->db->escape($helperId);

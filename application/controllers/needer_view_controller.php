@@ -16,7 +16,7 @@ class Needer_View_Controller extends CI_Controller {
         new Common($this);
     }
 
-    public function view ()	{
+    public function view()	{
         $segment = 3;
 
         if ($this->uri->segment($segment) === FALSE)
@@ -33,33 +33,38 @@ class Needer_View_Controller extends CI_Controller {
 
         $helpRequest = $this->helprequest_model->getById($view_id);
         $user        = $this->users_model->getById($helpRequest->user_id);
+        //$user = $this->users_model;
+
+        //pre($user);
 
         // Handle error
-        if (!$helpRequest || !$helpRequest->user_id || $user) {
-
+        if (!$helpRequest || !$helpRequest->user_id || !$user) {
             $this->twiggy->set('record', FALSE);
+            //die;
         }
+        else {
 
-        $this->load->model('helper_to_help_request_model');
-        $this->load->driver('cache', array('adapter' => 'apc', 'backup' => 'file'));
-        $cacheId = 'facebook_profileimage_' . $user->facebook_id;
-        $this->load->library('facebook');
-        if(! $profileImage = $this->cache->file->get($cacheId)) {
-            $profileImage = $this->facebook->getProfilePictureUrl($user->facebook_id, 300, 300);
-            $this->cache->file->save($cacheId, $profileImage);
+            $this->load->model('helper_to_help_request_model');
+            $this->load->driver('cache', array('adapter' => 'apc', 'backup' => 'file'));
+            $cacheId = 'facebook_profileimage_' . $user->facebook_id;
+            $this->load->library('facebook');
+            if(! $profileImage = $this->cache->file->get($cacheId)) {
+                $profileImage = $this->facebook->getProfilePictureUrl($user->facebook_id, 300, 300);
+                $this->cache->file->save($cacheId, $profileImage);
+            }
+
+            $this->load->model('help_request_message');
+            $helper_messages = $this->help_request_message->listHelpRequestMessagesForHelper($helpRequest->id, $user->user_id);
+            $this->twiggy->set('messages', $helper_messages);
+
+            //pre($helper_messages);
+            // die;
+
+            $this->twiggy->set('profile_image', $profileImage);
+            $this->twiggy->set('record', TRUE);
+            $this->twiggy->set('request_user', $user);
+            $this->twiggy->set('request', $helpRequest);
         }
-
-        $this->load->model('help_request_message');
-        $helper_messages = $this->help_request_message->listHelpRequestMessagesForHelper($helpRequest->id, $user->user_id);
-        $this->twiggy->set('messages', $helper_messages);
-
-        //pre($helper_messages);
-        // die;
-
-        $this->twiggy->set('profile_image', $profileImage);
-        $this->twiggy->set('record', TRUE);
-        $this->twiggy->set('request_user', $user);
-        $this->twiggy->set('request', $helpRequest);
 
         $this->twiggy->template($this->currentLanguage .'/help_request.view')->display();
     }
