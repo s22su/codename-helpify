@@ -139,6 +139,20 @@ button.btn {
 	} 
 }
 
+.person-row {
+	margin-bottom: 40px;
+
+	a, a:hover {
+		color: $mainGray;
+		font-size: 1.4em;
+	}
+
+	i {
+		margin: 10px;
+		margin-top: 0;
+	}
+}
+
 .front-doors {
 	background-color: #ccc;
 	width: 100%;

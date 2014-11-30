@@ -53,6 +53,22 @@ class Helper_Profile_Model extends CI_Model {
         return false;
     }
 
+    public function listAcceptedHelpRequestUsersForHelpee($helpeeId, $helpRequestId) {
+        if(empty($helpRequestId)) {
+            throw new ApplicationException('Help Request ID required');
+        }
+        $helpRequestId = $this->db->escape($helpRequestId);
+        $query = $this->db->query("
+            select DISTINCT u.* from helper_to_help_request hth
+            inner join users u on hth.do_help_user_id = u.user_id
+            where hth.help_request_id = $helpRequestId and hth.accepted=1");
+
+        foreach($query->result() as $row) {
+            return $row;
+        }
+        return false;
+    }
+
     public function insert($data) {
         return $this->db->insert(self::TABLE, $data);
     }
