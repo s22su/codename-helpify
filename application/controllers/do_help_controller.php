@@ -41,7 +41,7 @@ class Do_Help_Controller extends CI_Controller {
             $this->cache->file->save($cacheId, $profileImage);
         }
         $this->twiggy->set('profile_image', $profileImage);
-        $this->twiggy->set('error', $error);
+        $this->twiggy->set('error', isset($error) ? $error : null);
         $this->twiggy->template($this->currentLanguage.'/do_help')->display();
     }
 
