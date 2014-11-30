@@ -3,12 +3,12 @@
 include 'common.php';
 
 class Public_Home_Controller extends CI_Controller {
-	
+
 	public function __construct() {
 		parent::__construct();
 		$common = new Common($this);
 	}
-	
+
 	public function index() {
 		// pre($this->authentication->getUserData());
 		$this->twiggy->template($this->currentLanguage.'/home')->display();
@@ -24,5 +24,9 @@ class Public_Home_Controller extends CI_Controller {
 
     public function et() {
         $this->twiggy->template($this->currentLanguage.'/estonian')->display();
+    }
+
+    public function volunteer() {
+        $this->twiggy->template($this->currentLanguage.'/volunteer')->display();
     }
 }
