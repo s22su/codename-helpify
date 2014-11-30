@@ -2,7 +2,7 @@
 /**
  * @author Kristjan Siimson <dev@siimsoni.ee>
  */
-class Helper_Profile_Model extends CI_Model {
+class Help_request_message extends CI_Model {
     const TABLE = 'help_request_messages';
 
     var $id;

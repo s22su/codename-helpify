@@ -22,10 +22,6 @@ class Migration_Helper_To_Help_Request extends CI_Migration {
                 'type' => 'BIGINT',
                 'unsigned' => TRUE,
             ),
-            'description' => array(
-                'type' => 'TEXT',
-                'null' => TRUE,
-            ),
             'accepted' => array(
                 'type' => 'TINYINT'
             ),

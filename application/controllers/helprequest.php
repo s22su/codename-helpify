@@ -162,13 +162,21 @@ class Helprequest extends CI_Controller {
         $data = array(
           'do_help_user_id' => $user->user_id,
           'help_request_id' => $this->input->post('id'),
-          'description' => $this->input->post('description'),
           'accepted' => '0'
         );
         $this->load->model('helper_to_help_request_model');
 
         if(!$this->helper_to_help_request_model->userAssociatedWithRequest($user->user_id, $this->input->post('id'))) {
             $this->helper_to_help_request_model->insert($data);
+
+            $this->load->model('help_request_message');
+            $this->help_request_message->insert(
+                array(
+                    'help_request_id' => $this->input->post('id'),
+                    'user_id' => $user->user_id,
+                    'description' => $this->input->post('description')
+                )
+            );
         }
 
         redirect('/helprequest');
