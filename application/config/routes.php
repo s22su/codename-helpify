@@ -66,7 +66,7 @@ $route['my_helprequests'] = "needer_listoffers_controller/my_helprequests";
 $route['helprequest/(:num)/notify'] = "helper_makeoffer_controller/notify";
 
 $route['helper/(:num)'] = 'helper_view_controller/view';
-$route['et'] = 'home/et';
+$route['et'] = 'public_home_controller/et';
 
 $route['helprequest/view/(:num)'] = 'needer_view_controller/view';
 
