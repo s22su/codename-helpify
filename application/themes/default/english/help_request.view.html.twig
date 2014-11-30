@@ -20,19 +20,28 @@
                 <dd><a href="{{ request_user.facebook_profile }}">Facebook</a></dd>
             </dl>
 
-            {% if shownotify %}
+            {% if messages %}
                 <hr />
-                <form method="post" action="/helprequest/notify">
-                    <input type="hidden" name="id" value="{{ request.id  }}" />
-                    <div class="form-group">
-                        <label for="description">How can you help?</label>
-                        <textarea name="description" id="description" class="form-control"></textarea>
-                    </div>
-                    <div class="col-md-12">
-                        <input type="submit" value="Send message" class="btn btn-default"/>
-                    </div>
-                </form>
+                <h2>Messages</h2>
+                <ul>
+                    {% for message in messages %}
+                        <hr />
+                        <h3>Message from {{ message.name }}</h3>
+                        <li>{{ message.content }}</li>
+                    {% endfor %}
+                </ul>
             {% endif %}
+
+            <hr />
+            <form method="post" action="/helprequest/{{ request.id }}/notify">
+                <div class="form-group">
+                    <label for="description">How can you help?</label>
+                    <textarea name="description" id="description" class="form-control"></textarea>
+                </div>
+                <div class="col-md-12">
+                    <input type="submit" value="Send message" class="btn btn-default"/>
+                </div>
+            </form>
 
         </div>
         <div class="col-md-4">

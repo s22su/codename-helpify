@@ -132,7 +132,6 @@ class Helprequest extends CI_Controller {
 		}
 
         $this->load->model('helper_to_help_request_model');
-        $this->twiggy->set('shownotify', !$this->helper_to_help_request_model->userAssociatedWithRequest($user->user_id, $helpRequest->id));
         $this->load->driver('cache', array('adapter' => 'apc', 'backup' => 'file'));
         $cacheId = 'facebook_profileimage_' . $user->facebook_id;
         $this->load->library('facebook');
@@ -140,6 +139,10 @@ class Helprequest extends CI_Controller {
             $profileImage = $this->facebook->getProfilePictureUrl($user->facebook_id, 300, 300);
             $this->cache->file->save($cacheId, $profileImage);
         }
+
+        $this->load->model('help_request_message');
+        $this->twiggy->set('messages', $this->help_request_message->listHelpRequestMessagesForHelper($helpRequest->id, $user->user_id));
+
         $this->twiggy->set('profile_image', $profileImage);
 		$this->twiggy->set('record', TRUE);
 		$this->twiggy->set('request_user', $user);
@@ -150,9 +153,10 @@ class Helprequest extends CI_Controller {
 
     public function notify() {
         $user = $this->authentication->getUserData();
+        $viewingUserId = $user->user_id;
+        $helprequestId = $this->uri->segment(2);
 
         $this->load->library('form_validation');
-        $this->form_validation->set_rules('id', 'ID', 'required|numeric');
         $this->form_validation->set_rules('description', 'description', 'trim|required|min_length[1]|max_length[1024]|xss_clean');
 
         if(false === $this->form_validation->run()) {
@@ -160,25 +164,25 @@ class Helprequest extends CI_Controller {
         }
 
         $data = array(
-          'do_help_user_id' => $user->user_id,
-          'help_request_id' => $this->input->post('id'),
+          'do_help_user_id' => $viewingUserId,
+          'help_request_id' => $helprequestId,
           'accepted' => '0'
         );
         $this->load->model('helper_to_help_request_model');
 
-        if(!$this->helper_to_help_request_model->userAssociatedWithRequest($user->user_id, $this->input->post('id'))) {
+        if(!$this->helper_to_help_request_model->userAssociatedWithRequest($viewingUserId, $helprequestId)) {
             $this->helper_to_help_request_model->insert($data);
-
-            $this->load->model('help_request_message');
-            $this->help_request_message->insert(
-                array(
-                    'help_request_id' => $this->input->post('id'),
-                    'user_id' => $user->user_id,
-                    'description' => $this->input->post('description')
-                )
-            );
         }
 
-        redirect('/helprequest');
+        $this->load->model('help_request_message');
+        $this->help_request_message->insert(
+            array(
+                'help_request_id' => $helprequestId,
+                'user_id' => $viewingUserId,
+                'description' => $this->input->post('description')
+            )
+        );
+
+        redirect('/helprequest/view/' . $helprequestId);
     }
 }
