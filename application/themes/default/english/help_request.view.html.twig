@@ -15,7 +15,7 @@
 
             <dl class="dl-horizontal">
                 <dt>Contact by email:</dt>
-                <dd>{{ request_user.email }}</dd>
+                <dd><a href="mailto:{{ request_user.email }}">{{ request_user.email }}</a></dd>
                 <dt>Facebook contact:</dt>
                 <dd><a href="{{ request_user.facebook_profile }}">Facebook</a></dd>
             </dl>
@@ -26,7 +26,7 @@
                 <ul>
                     {% for message in messages %}
                         <hr />
-                        <h3>Message from {{ message.name }}</h3>
+                        <h3 class="bold">Message from {{ message.name }}</h3>
                         <li>{{ message.content }}</li>
                     {% endfor %}
                 </ul>
