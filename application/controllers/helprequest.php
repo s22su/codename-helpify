@@ -124,4 +124,29 @@ class Helprequest extends CI_Controller {
 
 		$this->twiggy->template($this->currentLanguage .'/help_request.view')->display();
 	}
+
+    public function notify() {
+        $user = $this->authentication->getUserData();
+
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('id', 'ID', 'required|numeric');
+        $this->form_validation->set_rules('description', 'description', 'trim|required|min_length[1]|max_length[1024]|xss_clean');
+
+        if(false === $this->form_validation->run()) {
+            return 'Invalid data';
+        }
+
+        $data = array(
+          'do_help_user_id' => $user->user_id,
+          'help_request_id' => $this->input->post('id'),
+          'description' => $this->input->post('description')
+        );
+        $this->load->model('helper_to_help_request_model');
+
+        if(!$this->helper_to_help_request_model->userAssociatedWithRequest($user->user_id, $this->input->post('id'))) {
+            $this->helper_to_help_request_model->insert($data);
+        }
+
+        redirect('/helprequest');
+    }
 }

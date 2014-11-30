@@ -60,6 +60,7 @@ $route['logout'] = 'facebook_controller/logout';
 // functional routes
 $route['about'] = "home/about";
 $route['helprequest'] = "helprequest/index";
+$route['helprequest/notify'] = "helprequest/notify";
 
 $route['helper/(:num)'] = 'helper_profile_controller/view';
 
