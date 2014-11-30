@@ -3,7 +3,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 include 'common.php';
 
-class Signup_Helper_Controller extends CI_Controller {
+class Helper_Signup_Controller extends CI_Controller {
 
     protected $user;
 

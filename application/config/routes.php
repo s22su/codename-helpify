@@ -38,34 +38,36 @@
 |
 */
 
-$route['default_controller'] = "home";
+$route['default_controller'] = "public_home_controller";
 $route['404_override'] = '';
 
-$route['migrate/current'] = "migrate/current";
-$route['migrate/latest'] = "migrate/latest";
-$route['migrate/version/(:num)'] = "migrate/version/$1";
+$route['migrate/current'] = "admin_migrate_controller/current";
+$route['migrate/latest'] = "admin_migrate_controller/latest";
+$route['migrate/version/(:num)'] = "admin_migrate_controller/version/$1";
 
 // Auth request
-$route['auth/need-help'] = "facebook_controller/authentication";
+$route['auth/need-help'] = "public_facebook_controller/authentication";
 // Callback
-$route['facebook'] = 'facebook_controller/callback';
+$route['facebook'] = 'public_facebook_controller/callback';
 
-$route['auth/do-help'] = "facebook_controller/authentication";
+$route['auth/do-help'] = "public_facebook_controller/authentication";
 
-$route['need-help'] = "helprequest/add";
-$route['do-help'] = "signup_helper_controller/do_help";
+$route['need-help'] = "needer_signup_controller/add";
+$route['do-help'] = "helper_signup_controller/do_help";
 
-$route['logout'] = 'facebook_controller/logout';
+$route['logout'] = 'public_facebook_controller/logout';
 
 // functional routes
-$route['about'] = "home/about";
-$route['team'] = "home/team";
-$route['helprequest'] = "helprequest/index";
-$route['my_helprequests'] = "helprequest/my_helprequests";
-$route['helprequest/(:num)/notify'] = "helprequest/notify";
+$route['about'] = "public_home_controller/about";
+$route['team'] = "public_home_controller/team";
+$route['helprequest'] = "helper_search_controller/index";
+$route['my_helprequests'] = "needer_listoffers/my_helprequests";
+$route['helprequest/(:num)/notify'] = "helper_makeoffer/notify";
 
-$route['helper/(:num)'] = 'helper_profile_controller/view';
+$route['helper/(:num)'] = 'helper_view_controller/view';
 $route['et'] = 'home/et';
+
+$route['helprequest/view/(:num)'] = 'needer_view_controller/view';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
