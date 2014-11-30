@@ -57,6 +57,34 @@ class Helprequest_Model extends CI_Model {
         return $rows;
     }
 
+    /**
+     * Get user help requests by user ID
+     * @param  int $id [description]
+     * @return array
+     */
+    function getHelpRequestsByUserId($user_id) {
+        $this->db->from('help_requests');
+        $this->db->where('user_id', $user_id);
+
+        $res = $this->db->get();
+
+        if($res->num_rows() === 0) {
+            return false;
+        }
+
+        $rows = $res->result_array();
+        foreach($rows as &$row) {
+            $row['converted_date'] = $this->convertTimestamp($row['date']);
+            //$row['converted_created_at'] = $this->convertTimestamp($row['created_at']);
+        }
+
+        //pre($rows);
+
+        return $rows;
+    }
+
+
+
     private function convertTimestamp($timestamp) {
     	$arr = array(
     		'dateY' => date('Y-m-d', $timestamp),

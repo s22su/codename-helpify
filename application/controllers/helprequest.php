@@ -86,12 +86,25 @@ class Helprequest extends CI_Controller {
 
 			$entries = $this->helprequest_model->addHelpRequest($formData);
 
-			redirect(site_url('/helprequest'));
+			redirect(site_url('/my_helprequests'));
 		}
 
 		$this->twiggy->set('now', date('m/d/Y', time()));
 		$this->twiggy->set('view_url', site_url('/helprequest/view'));
         $this->twiggy->template($this->currentLanguage .'/help_request.add')->display();
+	}
+
+
+	public function my_helprequests() {
+		$this->load->model('helprequest_model');
+
+		$my = $this->helprequest_model->getHelpRequestsByUserId(
+			$this->authentication->getUserData()->user_id
+		);
+
+		$this->twiggy->set('entries', $my);
+		$this->twiggy->template($this->currentLanguage .'/helprequest.my')->display();
+
 	}
 
 	public function view ()	{
