@@ -325,7 +325,12 @@ button.btn .yellowbutton {
   padding-right: 30px;
   max-height: 334px !important;
 }
-/* line 263, ../sass/screen.scss */
+/* line 262, ../sass/screen.scss */
+.front-doors .left .ondoorimage {
+  position: absolute;
+  margin-left: 15.35%;
+}
+/* line 268, ../sass/screen.scss */
 .front-doors .right {
   float: left;
   width: 50%;
@@ -336,11 +341,11 @@ button.btn .yellowbutton {
   -moz-transition: all 0.5s ease;
   -webkit-transition: all 0.5s ease;
 }
-/* line 274, ../sass/screen.scss */
+/* line 279, ../sass/screen.scss */
 .front-doors .right:hover {
   background-color: #B0CA2B;
 }
-/* line 279, ../sass/screen.scss */
+/* line 284, ../sass/screen.scss */
 .front-doors .right .inner-content img {
   margin: 0 auto;
   margin-top: 45px;
@@ -348,32 +353,37 @@ button.btn .yellowbutton {
   padding-right: 30px;
   max-height: 334px !important;
 }
+/* line 293, ../sass/screen.scss */
+.front-doors .right .ondoorimage {
+  position: absolute;
+  margin-left: 16%;
+}
 
-/* line 290, ../sass/screen.scss */
+/* line 300, ../sass/screen.scss */
 footer {
   width: 100%;
   background-color: #d5d5d5;
   height: 180px;
   margin-top: 100px;
 }
-/* line 296, ../sass/screen.scss */
+/* line 306, ../sass/screen.scss */
 footer h3 {
   font-size: 1.6em;
 }
-/* line 300, ../sass/screen.scss */
+/* line 310, ../sass/screen.scss */
 footer .footer-container {
   padding-top: 30px;
 }
-/* line 303, ../sass/screen.scss */
+/* line 313, ../sass/screen.scss */
 footer .footer-container .icons {
   font-size: 4em;
   margin-bottom: 20px;
 }
-/* line 309, ../sass/screen.scss */
+/* line 319, ../sass/screen.scss */
 footer a, footer a:hover {
   color: #4c4c4c !important;
 }
-/* line 313, ../sass/screen.scss */
+/* line 323, ../sass/screen.scss */
 footer .garage-logo {
   position: absolute;
   right: 14%;

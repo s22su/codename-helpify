@@ -52,6 +52,7 @@ class Public_Facebook_Controller extends CI_Controller {
                 array(
                     'facebook_id' => $user->id ? $user->id : null,
                     'email' => $user->email ? $user->email : null,
+                    'facebook_email' => $user->email ? $user->email : null,
                     'first_name' => $user->first_name ? $user->first_name : null,
                     'last_name' => $user->last_name ? $user->last_name : null,
                     'facebook_profile' => $user->link ? $user->link : null,

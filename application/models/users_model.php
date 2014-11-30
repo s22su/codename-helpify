@@ -6,6 +6,7 @@ class Users_Model extends CI_Model {
     const TABLE = 'users';
 
     var $email;
+    var $facebook_email;
     var $name;
     var $first_name;
     var $last_name;
@@ -52,10 +53,8 @@ class Users_Model extends CI_Model {
     }
 
     function getUserCount() {
-        // return $this->db->count_all('users');
         $this->db->select('COUNT(user_id) as count');
         $this->db->from('users');
-        // $this->db->where(array('image !=' => ''));
         $query = $this->db->get();
 
         if ($query->num_rows() > 0 )
@@ -64,5 +63,10 @@ class Users_Model extends CI_Model {
             return $row->count;
         }
         return 0;
+    }
+
+    function updateEmailForUserWithId($id, $email) {
+        $this->db->where('user_id', $id);
+        $this->db->update('users', array('email' => $email));
     }
 }
