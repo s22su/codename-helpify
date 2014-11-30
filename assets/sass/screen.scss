@@ -57,13 +57,13 @@ pre {
 
 .helpific-navbar {
 	box-shadow: 2px 4px 5px 0.00px rgba(1, 1, 1, 0.1);
-	padding: 10px 0;
+	//padding: 10px 0;
 	background-color: #fff;
-	height: 120px !important;
+	height: 100px !important;
 
 	a {
 		color:  #05aad7;
-		font-size: 24px; /* Approximation due to font substitution */
+		font-size: 1.2em; /* Approximation due to font substitution */
 		font-weight: 700;
 	}
 
@@ -73,7 +73,6 @@ pre {
 
 	li.active, li.active a {
 		color:  #4c4c4c;
-		font-size: 24px; /* Approximation due to font substitution */
 		font-weight: 700;
 	}
 
@@ -82,8 +81,13 @@ pre {
 	}
 
 	.navbar-toggle {
-		color: $yellow;
-		font-size: 1.7em;
+		font-size: 2em;
+		margin-top: 30px;
+		background-color: #eee!important;
+	}
+
+	.navbar-collapse {
+		background-color: #fff!important;
 	}
 }
 
@@ -133,7 +137,7 @@ button.btn {
 }
 
 .header_picture {
-	margin-top: 71px;
+	margin-top: 51px;
 	background-image: url(../images/header.png);
 	height: 399px;
 	background-color: #ccc;
@@ -282,4 +286,5 @@ footer {
 
 @import "./listing";
 @import "./large";
+@import "./small";
 
