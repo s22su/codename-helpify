@@ -43,11 +43,13 @@ class Migration_Help_requests extends CI_Migration {
                 'null' => TRUE
             ),
             'lat' => array(
-                'type' => 'FLOAT',
+                'type' => 'DECIMAL',
+                'constraint' => '20,16',
                 'null' => TRUE,
             ),
             'lon' => array(
-                'type' => 'FLOAT',
+                'type' => 'DECIMAL',
+                'constraint' => '20,16',
                 'null' => TRUE,
             ),
             'created_at' => array(

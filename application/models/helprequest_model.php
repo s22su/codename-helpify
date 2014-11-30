@@ -93,4 +93,13 @@ class Helprequest_Model extends CI_Model {
 
         return reset($results);
     }
+
+    public function getCitiesWithHelpRequests() {
+        $query = $this->db->query("select distinct city from help_requests r order by city");
+        $cities = array();
+        foreach($query->result() as $row) {
+            $cities[$row->city] = $row->city;
+        }
+        return $cities;
+    }
 }
