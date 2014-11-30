@@ -1,19 +1,27 @@
 {% extends "_layouts/main_layout.html.twig" %}
 
 {% block content %}
-
-{% if record == FALSE %}
-
-    <h1>No record found</h1>
-
-{% else %}
+    <h1>Will you help {{request_user.name}} with</h1>
+    <h2>...{{request.category}}?</h2>
+    <hr />
     <div class="row">
         <div class="col-md-8">
-            <h1>Will you help {{request_user.name}} with</h1>
-            <h2>...{{request.category}}?</h2>
-        </div>
-        <div class="col-md-4">
+            <dl class="dl-horizontal">
+                <dt>City:</dt>
+                <dd>{{ request.city }}</dd>
+            </dl>
+
+            <hr />
+
+            <dl class="dl-horizontal">
+                <dt>Contact by email:</dt>
+                <dd>{{ request_user.email }}</dd>
+                <dt>Facebook contact:</dt>
+                <dd><a href="{{ request_user.facebook_profile }}">Facebook</a></dd>
+            </dl>
+
             {% if shownotify %}
+                <hr />
                 <form method="post" action="/helprequest/notify">
                     <input type="hidden" name="id" value="{{ request.id  }}" />
                     <div class="form-group">
@@ -21,47 +29,16 @@
                         <textarea name="description" id="description" class="form-control"></textarea>
                     </div>
                     <div class="col-md-12">
-                        <input type="submit" value="Help" class="btn btn-default"/>
+                        <input type="submit" value="Send message" class="btn btn-default"/>
                     </div>
                 </form>
             {% endif %}
+
+        </div>
+        <div class="col-md-4">
+            <img src="{{profile_image}}" alt="Profile image of {{user.name}}" />
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            <br />
-            <br />
-            <br />
-
-            <dl class="dl-horizontal">
-              <dt>When:</dt>
-              <dd>{{ request.date | date }}</dd>
-              <dt>Address:</dt>
-              <dd>{{ request.address }}</dd>
-              <dt>Formatted:</dt>
-              <dd>{{ request.address_formatted }}</dd>
-              <dt>Created:</dt>
-              <dd>{{ request.created_at }}</dd>
-            </dl>
-
-            <br />
-            <br />
-            <br />
-
-            <h2>More about {{request_user.name}}</h2>
-
-            <br />
-            <br />
-
-            <dl class="dl-horizontal">
-              <dt>Contact by email:</dt>
-              <dd>{{ request_user.email }}</dd>
-              <dt>Facebook contact:</dt>
-              <dd><a href="{{ request_user.facebook_profile }}">Facebook</a></dd>
-            </dl>
-        </div>
-    </div>
-
-{% endif %}
-
+    <hr />
+    <hr />
 {% endblock %}

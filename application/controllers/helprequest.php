@@ -120,6 +120,14 @@ class Helprequest extends CI_Controller {
 
         $this->load->model('helper_to_help_request_model');
         $this->twiggy->set('shownotify', !$this->helper_to_help_request_model->userAssociatedWithRequest($user->user_id, $helpRequest->id));
+        $this->load->driver('cache', array('adapter' => 'apc', 'backup' => 'file'));
+        $cacheId = 'facebook_profileimage_' . $user->facebook_id;
+        $this->load->library('facebook');
+        if(! $profileImage = $this->cache->file->get($cacheId)) {
+            $profileImage = $this->facebook->getProfilePictureUrl($user->facebook_id, 300, 300);
+            $this->cache->file->save($cacheId, $profileImage);
+        }
+        $this->twiggy->set('profile_image', $profileImage);
 		$this->twiggy->set('record', TRUE);
 		$this->twiggy->set('request_user', $user);
 		$this->twiggy->set('request', $helpRequest);
