@@ -61,6 +61,10 @@ pre {
 	background-color: #fff;
 	height: 100px !important;
 
+	.loggedLink {
+		text-decoration: underline!important;
+	}
+
 	a {
 		color:  #05aad7;
 		font-size: 1.2em; /* Approximation due to font substitution */
