@@ -38,7 +38,6 @@ class Helprequest extends CI_Controller {
 			$this->twiggy->set('submitted', 1);
 		}
 
-		$this->twiggy->set('now', date('m/d/Y', time()));
 		$this->twiggy->template($this->currentLanguage.'/helprequest.index')->display();
 	}
 
