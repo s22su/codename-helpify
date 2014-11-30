@@ -52,7 +52,7 @@ $route['facebook'] = 'facebook_controller/callback';
 
 $route['auth/do-help'] = "facebook_controller/authentication";
 
-$route['need-help'] = "profile_controller/need_help";
+$route['need-help'] = "helprequest/add";
 $route['do-help'] = "do_help_controller/do_help";
 
 $route['logout'] = 'facebook_controller/logout';
@@ -60,7 +60,6 @@ $route['logout'] = 'facebook_controller/logout';
 // functional routes
 $route['about'] = "home/about";
 $route['helprequest'] = "helprequest/index";
-$route['helprequest/add'] = "helprequest/add";
 
 $route['helper/(:num)'] = 'helper_profile_controller/view';
 

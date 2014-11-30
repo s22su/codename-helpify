@@ -36,6 +36,18 @@
           $("#videoModal iframe").attr("src", $("#videoModal iframe").attr("src"));
         });
 
+        // doors click actions - left door - need help
+        $('.front-doors .left, .front-doors .left a').click(function(e) {
+          window.location.href = '/auth/need-help';
+          e.preventDefault();
+        });
+
+        // doors click actions - right door - i want to help
+        $('.front-doors .right, .front-doors .right a').click(function(e) {
+          window.location.href = '/auth/do-help';
+          e.preventDefault();
+        });
+
     });
 
     // Google analytics

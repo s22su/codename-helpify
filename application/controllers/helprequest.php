@@ -5,6 +5,13 @@ class Helprequest extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
+
+        if(false === $this->authentication->isLoggedIn())
+        {
+            log_message('warning', 'Unauthenticated user attempted to access profile page');
+            redirect(site_url());
+        }
+
 		new Common($this);
 	}
 
