@@ -270,22 +270,24 @@ button.btn .yellowbutton {
   width: 50%;
   background-color: #05aad7;
   text-align: center;
+  cursor: pointer;
 }
-/* line 204, ../sass/screen.scss */
+/* line 205, ../sass/screen.scss */
 .front-doors .left .inner-content img {
   margin: 0 auto;
   margin-top: 45px;
   padding-left: 30px;
   padding-right: 30px;
 }
-/* line 213, ../sass/screen.scss */
+/* line 214, ../sass/screen.scss */
 .front-doors .right {
   float: left;
   width: 50%;
   background-color: #a3b930;
   text-align: center;
+  cursor: pointer;
 }
-/* line 220, ../sass/screen.scss */
+/* line 222, ../sass/screen.scss */
 .front-doors .right .inner-content img {
   margin: 0 auto;
   margin-top: 45px;
@@ -293,31 +295,31 @@ button.btn .yellowbutton {
   padding-right: 30px;
 }
 
-/* line 230, ../sass/screen.scss */
+/* line 232, ../sass/screen.scss */
 footer {
   width: 100%;
   background-color: #d5d5d5;
   height: 180px;
   margin-top: 100px;
 }
-/* line 236, ../sass/screen.scss */
+/* line 238, ../sass/screen.scss */
 footer h3 {
   font-size: 1.6em;
 }
-/* line 240, ../sass/screen.scss */
+/* line 242, ../sass/screen.scss */
 footer .footer-container {
   padding-top: 30px;
 }
-/* line 243, ../sass/screen.scss */
+/* line 245, ../sass/screen.scss */
 footer .footer-container .icons {
   font-size: 4em;
   margin-bottom: 20px;
 }
-/* line 249, ../sass/screen.scss */
+/* line 251, ../sass/screen.scss */
 footer a, footer a:hover {
   color: #4c4c4c !important;
 }
-/* line 253, ../sass/screen.scss */
+/* line 255, ../sass/screen.scss */
 footer .garage-logo {
   position: absolute;
   right: 14%;
