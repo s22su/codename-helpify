@@ -166,7 +166,7 @@ button.btn {
 
 	h2 {
 		font-size: 20px;
-	} 
+	}
 }
 
 .person-row {
@@ -231,6 +231,14 @@ button.btn {
 		text-align: center;
 		cursor: pointer;
 
+	    transition: all 0.5s ease;
+	    -moz-transition: all 0.5s ease;
+	    -webkit-transition: all 0.5s ease;
+
+		&:hover {
+			background-color: #1292B5;
+		}
+
 		.inner-content {
 			img {
 				margin: 0 auto;
@@ -247,6 +255,14 @@ button.btn {
 		background-color:  #a3b930;
 		text-align: center;
 		cursor: pointer;
+
+	    transition: all 0.5s ease;
+	    -moz-transition: all 0.5s ease;
+	    -webkit-transition: all 0.5s ease;
+
+		&:hover {
+			background-color: #B0CA2B;
+		}
 
 		.inner-content {
 			img {
