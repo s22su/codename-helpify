@@ -25,53 +25,9 @@
 
 		            <div class="col-sm-5">
 			            <select name="city" class="form-control" id="citySelect">
-				          <option>Tallinn</option>
-				          <option>Tartu</option>
-				          <option>Narva</option>
-				          <option>Kohtla-Järve</option>
-				          <option>Pärnu</option>
-				          <option>Viljandi</option>
-				          <option>Rakvere</option>
-				          <option>Maardu</option>
-				          <option>Sillamäe</option>
-				          <option>Kuressaare</option>
-				          <option>Võru</option>
-				          <option>Valga</option>
-				          <option>Haapsalu</option>
-				          <option>Jõhvi</option>
-				          <option>Paide</option>
-				          <option>Keila</option>
-				          <option>Kiviõli</option>
-				          <option>Tapa</option>
-				          <option>Põlva</option>
-				          <option>Jõgeva</option>
-				          <option>Türi</option>
-				          <option>Elva</option>
-				          <option>Rapla</option>
-				          <option>Saue</option>
-				          <option>Põltsamaa</option>
-				          <option>Paldiski</option>
-				          <option>Sindi</option>
-				          <option>Kunda</option>
-				          <option>Kärdla</option>
-				          <option>Loksa</option>
-				          <option>Kehra</option>
-				          <option>Tõrva</option>
-				          <option>Räpina</option>
-				          <option>Narva-Jõesuu</option>
-				          <option>Tamsalu</option>
-				          <option>Kilingi-Nõmme</option>
-				          <option>Otepää</option>
-				          <option>Karksi-Nuia</option>
-				          <option>Püssi</option>
-				          <option>Mustvee</option>
-				          <option>Lihula</option>
-				          <option>Võhma</option>
-				          <option>Antsla</option>
-				          <option>Abja-Paluoja</option>
-				          <option>Suure-Jaani</option>
-				          <option>Kallaste</option>
-				          <option>Mõisaküla</option>
+                            {% for city in cities %}
+                                <option value="{{ city }}">{{ city }}</option>
+                            {% endfor %}
 			            </select>
 			        </div>
 		        </div>
