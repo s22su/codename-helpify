@@ -42,10 +42,13 @@ class Users_Model extends CI_Model {
         $this->db->from('users');
         $this->db->where('user_id', $id);
 
-        $query = $this->db->get();
-        foreach($query->result() as $row) {
-            return $row;
+        $res = $this->db->get();
+
+        if($res->num_rows() === 0) {
+            return false;
         }
+
+        return current($res->result_object());
     }
 
     function getUserCount() {
