@@ -11,6 +11,7 @@ class Helprequest_Model extends CI_Model {
     var $date;
     var $lat;
     var $lon;
+    var $description;
     var $created_ad;
     var $is_active;
 
