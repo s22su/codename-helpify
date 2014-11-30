@@ -31,7 +31,7 @@ class Help_request_message extends CI_Model {
             select r.user_id as request_user_id, m.user_id, u.name, m.description as content from help_requests r
             inner join help_request_messages m on r.id = m.help_request_id
             inner join users u on r.user_id = u.user_id
-            where r.id = $helpRequestId and (u.user_id = $helperId or m.user_id = r.user_id)");
+            where r.id = $helpRequestId and (r.user_id = $helperId or m.user_id = r.user_id)");
 
         $result = array();
         foreach($query->result() as $row) {
@@ -62,8 +62,7 @@ class Help_request_message extends CI_Model {
         if(empty($helpRequestId)) {
             throw new ApplicationException('Help Request ID required');
         }
-        $helpRequestId = $this->db->escape($helpRequestId);
-        $query = $this->db->query("
+        $helpRequestId = $this->db->escape($helpRequestId);        $query = $this->db->query("
             select DISTINCT u.* from helper_to_help_request hth
             inner join users u on hth.do_help_user_id = u.user_id
             where hth.help_request_id = $helpRequestId and hth.accepted=1");
