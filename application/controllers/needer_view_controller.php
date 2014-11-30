@@ -55,11 +55,14 @@ class Needer_View_Controller extends CI_Controller {
 
             $this->load->model('help_request_message');
             $helper_messages = $this->help_request_message->listHelpRequestMessagesForHelper($helpRequest->id, $user->user_id);
-            $this->twiggy->set('messages', $helper_messages);
+            
+            foreach($helper_messages as &$msg) {
+                $msg->sender = $this->users_model->getById($msg->user_id);
+            }
 
             //pre($helper_messages);
             // die;
-
+            $this->twiggy->set('messages', $helper_messages);
             $this->twiggy->set('profile_image', $profileImage);
             $this->twiggy->set('record', TRUE);
             $this->twiggy->set('request_user', $user);

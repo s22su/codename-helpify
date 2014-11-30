@@ -36,6 +36,8 @@ class Help_request_message extends CI_Model {
         foreach($query->result() as $row) {
             $result[] =  $row;
         }
+
+        //pre($result);
         return $result;
     }
 

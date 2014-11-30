@@ -30,7 +30,7 @@
                 <ul>
                     {% for message in messages %}
                         <hr />
-                        <h3 class="bold">Message from {{ message.name }}</h3>
+                        Message from <span style="font-weight: 700; font-size: 1.2em;">{{ message.sender.name }}</span><br><br>
                         <li>{{ message.content }}</li>
                     {% endfor %}
                 </ul>
