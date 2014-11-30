@@ -50,6 +50,7 @@ class Signup_Helper_Controller extends CI_Controller {
         $this->form_validation->set_rules('city', 'City', 'trim|required|min_length[1]|max_length[64]|xss_clean');
         $this->form_validation->set_rules('hobbies', 'Hobbies', 'trim|max_length[1024]|xss_clean');
         $this->form_validation->set_rules('experience', 'Experience', 'trim|max_length[1024]|xss_clean');
+        $this->form_validation->set_rules('email', 'Email', 'required');
 
         if(false === $this->form_validation->run()) {
             return 'Invalid data';
