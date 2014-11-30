@@ -3,16 +3,31 @@
 {% block header_picture %}
     <div class="header_picture">
 
+    <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <div>
+              <iframe width="560" height="315" src="//www.youtube.com/embed/nLEv2P4FEbU" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
         <div class="headline centered">
           <h1>Helpific - it´s never been easier to give and get help. </h1><br>
           <h2>Helpific is a person to person platform to create stronger communities. </h2>
-          <a href="#">
+          <a href="#" data-toggle="modal" data-target="#videoModal" data-theVideo="http://www.youtube.com/embed/loFtozxZG0s">
             
             <img src="{{base_url}}/assets/images/playbutton.png" class="img-responsive centered-margin m40top">
 
             <h2 class="m20top">Watch video</h2>
 
           </a>
+
         </div>
     </div>
 {% endblock %}
