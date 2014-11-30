@@ -47,4 +47,19 @@ class Users_Model extends CI_Model {
             return $row;
         }
     }
+
+    function getUserCount() {
+        // return $this->db->count_all('users');
+        $this->db->select('COUNT(user_id) as count');
+        $this->db->from('users');
+        // $this->db->where(array('image !=' => ''));
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0 )
+        {
+            $row = $query->row();
+            return $row->count;
+        }
+        return 0;
+    }
 }

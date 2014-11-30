@@ -84,8 +84,6 @@ class Helprequest_Model extends CI_Model {
         return $rows;
     }
 
-
-
     private function convertTimestamp($timestamp) {
     	$arr = array(
     		'dateY' => date('Y-m-d', $timestamp),
