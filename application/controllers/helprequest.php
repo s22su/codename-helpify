@@ -58,7 +58,7 @@ class Helprequest extends CI_Controller {
 
 	public function add() {
 
-		// TODO: hardcoded also, should add the field in database
+		//TOD O: hardcoded also, should add the field in database
 		$country = 'Estonia';
 
 		if($this->input->post()) {
@@ -141,7 +141,11 @@ class Helprequest extends CI_Controller {
         }
 
         $this->load->model('help_request_message');
-        $this->twiggy->set('messages', $this->help_request_message->listHelpRequestMessagesForHelper($helpRequest->id, $user->user_id));
+        $helper_messages = $this->help_request_message->listHelpRequestMessagesForHelper($helpRequest->id, $user->user_id);
+        $this->twiggy->set('messages', $helper_messages);
+
+        //pre($helper_messages);
+        // die;
 
         $this->twiggy->set('profile_image', $profileImage);
 		$this->twiggy->set('record', TRUE);
@@ -169,6 +173,9 @@ class Helprequest extends CI_Controller {
           'accepted' => '0'
         );
         $this->load->model('helper_to_help_request_model');
+
+        //pre($user);
+        //die;
 
         if(!$this->helper_to_help_request_model->userAssociatedWithRequest($viewingUserId, $helprequestId)) {
             $this->helper_to_help_request_model->insert($data);
