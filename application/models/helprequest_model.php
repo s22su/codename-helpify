@@ -33,8 +33,12 @@ class Helprequest_Model extends CI_Model {
     	}
 
 		// date filter
-    	if(isset($filters['date']) && $filters['date']) {
-    		$this->db->where('date', $filters['city']);
+        if(isset($filters['date_start']) && $filters['date_start']) {
+            $this->db->where('date >=', $filters['date_start']);
+        }
+
+        if(isset($filters['date_end']) && $filters['date_end']) {
+    		$this->db->where('date <=', $filters['date_end']);
     	}
 
     	$this->db->join('users', 'users.user_id = help_requests.user_id');

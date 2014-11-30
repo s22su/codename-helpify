@@ -26,9 +26,19 @@
     };
 
     $(document).ready(function () {
+
+        $('#datetime-start').datetimepicker({
+            pickTime: false
+        });
+
+        $('#datetime-end').datetimepicker({
+            pickTime: false
+        });
+
         $('#datetimepicker').datetimepicker({
             pickTime: false
         });
+
         Front.init();
 
         // to stop video in modal

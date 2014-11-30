@@ -34,12 +34,15 @@ class Helprequest extends CI_Controller {
 			}
 
 			// date filter
-			if($this->input->get('date')) {
-				$filters['date'] = $this->input->get('date');
+			if($this->input->get('date_start')) {
+				$filters['date_start'] = strtotime($this->input->get('date_start'));
+			}
+
+			if($this->input->get('date_start')) {
+				$filters['date_start'] = strtotime($this->input->get('date_start'));
 			}
 
 			$entries = $this->helprequest_model->getHelpRequests($filters);
-
 
 			$this->twiggy->set('entries', $entries);
 			$this->twiggy->set('submitted', 1);
