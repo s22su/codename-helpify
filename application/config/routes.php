@@ -61,8 +61,8 @@ $route['logout'] = 'public_facebook_controller/logout';
 $route['about'] = "public_home_controller/about";
 $route['team'] = "public_home_controller/team";
 $route['helprequest'] = "helper_search_controller/index";
-$route['my_helprequests'] = "needer_listoffers/my_helprequests";
-$route['helprequest/(:num)/notify'] = "helper_makeoffer/notify";
+$route['my_helprequests'] = "needer_listoffers_controller/my_helprequests";
+$route['helprequest/(:num)/notify'] = "helper_makeoffer_controller/notify";
 
 $route['helper/(:num)'] = 'helper_view_controller/view';
 $route['et'] = 'home/et';
