@@ -118,6 +118,8 @@ class Helprequest extends CI_Controller {
 			$this->twiggy->set('record', FALSE);
 		}
 
+        $this->load->model('helper_to_help_request_model');
+        $this->twiggy->set('shownotify', !$this->helper_to_help_request_model->userAssociatedWithRequest($user->user_id, $helpRequest->id));
 		$this->twiggy->set('record', TRUE);
 		$this->twiggy->set('request_user', $user);
 		$this->twiggy->set('request', $helpRequest);
@@ -133,7 +135,7 @@ class Helprequest extends CI_Controller {
         $this->form_validation->set_rules('description', 'description', 'trim|required|min_length[1]|max_length[1024]|xss_clean');
 
         if(false === $this->form_validation->run()) {
-            return 'Invalid data';
+            redirect('/helprequest');
         }
 
         $data = array(

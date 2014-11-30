@@ -14,16 +14,18 @@
             <h2>...{{request.category}}?</h2>
         </div>
         <div class="col-md-4">
-            <form method="post" action="/helprequest/notify">
-                <input type="hidden" name="id" value="{{ request.id  }}" />
-                <div class="form-group">
-                    <label for="description">How can you help?</label>
-                    <textarea name="description" id="description" class="form-control"></textarea>
-                </div>
-                <div class="col-md-12">
-                    <input type="submit" value="Help" class="btn btn-default"/>
-                </div>
-            </form>
+            {% if shownotify %}
+                <form method="post" action="/helprequest/notify">
+                    <input type="hidden" name="id" value="{{ request.id  }}" />
+                    <div class="form-group">
+                        <label for="description">How can you help?</label>
+                        <textarea name="description" id="description" class="form-control"></textarea>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="submit" value="Help" class="btn btn-default"/>
+                    </div>
+                </form>
+            {% endif %}
         </div>
     </div>
     <div class="row">
