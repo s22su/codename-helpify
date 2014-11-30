@@ -139,7 +139,8 @@ class Helprequest extends CI_Controller {
         $data = array(
           'do_help_user_id' => $user->user_id,
           'help_request_id' => $this->input->post('id'),
-          'description' => $this->input->post('description')
+          'description' => $this->input->post('description'),
+          'accepted' => '0'
         );
         $this->load->model('helper_to_help_request_model');
 
