@@ -2,7 +2,7 @@
 /**
  * @author Kristjan Siimson <dev@siimsoni.ee>
  */
-class Helper_Profile_Model extends CI_Model {
+class Help_request_message extends CI_Model {
     const TABLE = 'help_request_messages';
 
     var $id;
@@ -25,15 +25,16 @@ class Helper_Profile_Model extends CI_Model {
         $helpRequestId = $this->db->escape($helpRequestId);
         $helperId = $this->db->escape($helperId);
         $query = $this->db->query("
-            select * from help_requests r
+            select r.user_id as request_user_id, m.user_id, u.name, m.description as content from help_requests r
             inner join help_request_messages m on r.id = m.help_request_id
             inner join users u on r.user_id = u.user_id
             where r.id = $helpRequestId and (r.user_id = $helperId or m.user_id = r.user_id)");
 
+        $result = array();
         foreach($query->result() as $row) {
-            return $row;
+            $result[] =  $row;
         }
-        return false;
+        return $result;
     }
 
     public function listHelpRequestMessagesForHelpee($helpRequestId) {
@@ -47,10 +48,11 @@ class Helper_Profile_Model extends CI_Model {
             inner join users u on r.user_id = u.user_id
             where r.id = $helpRequestId");
 
+        $result = array();
         foreach($query->result() as $row) {
-            return $row;
+            $result[] =  $row;
         }
-        return false;
+        return $result;
     }
 
     public function listAcceptedHelpRequestUsersForHelpee($helpeeId, $helpRequestId) {

@@ -61,9 +61,10 @@ $route['logout'] = 'facebook_controller/logout';
 $route['about'] = "home/about";
 $route['helprequest'] = "helprequest/index";
 $route['my_helprequests'] = "helprequest/my_helprequests";
-$route['helprequest/notify'] = "helprequest/notify";
+$route['helprequest/(:num)/notify'] = "helprequest/notify";
 
 $route['helper/(:num)'] = 'helper_profile_controller/view';
+$route['et'] = 'home/et';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

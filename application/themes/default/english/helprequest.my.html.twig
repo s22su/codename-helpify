@@ -8,7 +8,7 @@
 			<div class="col-xs-12 col-sm-10 col-sm-offset-1">
 
 			<h1 class="centered">My help requests</h1><br><br>
-				
+
 				<ul class="event-list">
 
 					{% for entry in entries %}
@@ -33,7 +33,7 @@
 							</div>
 
 							<div class="viewButton">
-
+								<a class="btn btn-lg btn-success" href="/helprequest/view/{{ entry.id }}">Edit</a>
 								<a class="btn btn-lg btn-success" href="/helprequest/view/{{ entry.id }}">View</a>
 							</div>
 
