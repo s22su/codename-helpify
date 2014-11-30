@@ -56,6 +56,8 @@ class Helper_Signup_Controller extends CI_Controller {
             return 'Invalid data';
         }
 
+        $this->users_model->updateEmailForUserWithId($this->user->user_id, $this->input->post('email'));
+
         $this->load->helper('geocode_helper');
         $geocode = geocode($this->input->post('city'));
 

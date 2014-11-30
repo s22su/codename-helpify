@@ -16,6 +16,10 @@
             {% if profile_image %}
                 <div class="col-md-8">
                     <div class="form-group">
+                        <label for="email">E-mail *</label>
+                        <input name="email" type="text" id="email" class="form-control" value="{{ facebook_email }}" />
+                    </div>
+                    <div class="form-group">
                         <label for="city">City *</label>
                         <input name="city" type="text" id="city" class="form-control" />
                     </div>
@@ -25,6 +29,10 @@
                 </div>
             {% else %}
                 <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="email">E-mail *</label>
+                        <input name="email" type="text" id="email" class="form-control" value="{{ facebook_email }}" />
+                    </div>
                     <div class="form-group">
                         <label for="city">City *</label>
                         <input name="city" type="text" id="city" class="form-control" />
