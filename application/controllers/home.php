@@ -17,4 +17,8 @@ class Home extends CI_Controller {
 	public function about() {
 		$this->twiggy->template($this->currentLanguage.'/about')->display();
 	}
+
+    public function et() {
+        $this->twiggy->template($this->currentLanguage.'/estonian')->display();
+    }
 }
