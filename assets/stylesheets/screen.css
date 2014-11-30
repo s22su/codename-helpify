@@ -2,7 +2,7 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 5, ../../../.gem/ruby/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 5, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -24,45 +24,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../.gem/ruby/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../.gem/ruby/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../.gem/ruby/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../.gem/ruby/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../.gem/ruby/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../.gem/ruby/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../.gem/ruby/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../.gem/ruby/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
@@ -216,53 +216,57 @@ button.btn .yellowbutton {
 /* line 149, ../sass/screen.scss */
 .header_picture {
   margin-top: 51px;
-  background-image: url(../images/header.png);
+  background-image: url(../images/header2.jpg);
   height: 399px;
   background-color: #ccc;
   width: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
-/* line 156, ../sass/screen.scss */
+/* line 161, ../sass/screen.scss */
 .header_picture h1, .header_picture h2 {
   color: #fff;
 }
-/* line 160, ../sass/screen.scss */
+/* line 165, ../sass/screen.scss */
 .header_picture .headline {
   padding-top: 100px;
 }
-/* line 164, ../sass/screen.scss */
+/* line 169, ../sass/screen.scss */
 .header_picture a, .header_picture a:hover {
   text-decoration: none !important;
 }
-/* line 168, ../sass/screen.scss */
+/* line 173, ../sass/screen.scss */
 .header_picture h1 {
   font-size: 25px;
 }
-/* line 172, ../sass/screen.scss */
+/* line 177, ../sass/screen.scss */
 .header_picture h2 {
   font-size: 20px;
 }
 
-/* line 177, ../sass/screen.scss */
+/* line 182, ../sass/screen.scss */
 .person-row {
   margin-bottom: 40px;
 }
-/* line 180, ../sass/screen.scss */
+/* line 185, ../sass/screen.scss */
 .person-row a, .person-row a:hover {
   color: #4c4c4c;
   font-size: 1.4em;
 }
-/* line 185, ../sass/screen.scss */
+/* line 190, ../sass/screen.scss */
 .person-row i {
   margin: 10px;
   margin-top: 0;
 }
 
-/* line 191, ../sass/screen.scss */
+/* line 196, ../sass/screen.scss */
 .front-doors {
   background-color: #ccc;
   width: 100%;
 }
-/* line 195, ../sass/screen.scss */
+/* line 200, ../sass/screen.scss */
 .front-doors a.btn {
   background-color: transparent !important;
   border-radius: 4px;
@@ -272,7 +276,7 @@ button.btn .yellowbutton {
   font-weight: 700;
   word-wrap: break-word !important;
 }
-/* line 205, ../sass/screen.scss */
+/* line 210, ../sass/screen.scss */
 .front-doors .keyImage {
   max-width: 200px;
   width: 100%;
@@ -281,24 +285,24 @@ button.btn .yellowbutton {
   top: 250px;
   margin-bottom: -100px;
 }
-/* line 215, ../sass/screen.scss */
+/* line 220, ../sass/screen.scss */
 .front-doors .inner-content {
   padding-top: 100px;
 }
-/* line 218, ../sass/screen.scss */
+/* line 223, ../sass/screen.scss */
 .front-doors .inner-content .second-line {
   font-size: 1.28em;
 }
-/* line 222, ../sass/screen.scss */
+/* line 227, ../sass/screen.scss */
 .front-doors .inner-content .first-line {
   font-size: 1.6em;
 }
-/* line 225, ../sass/screen.scss */
+/* line 230, ../sass/screen.scss */
 .front-doors .inner-content .first-line strong {
   font-weight: bold;
   color: #fff;
 }
-/* line 232, ../sass/screen.scss */
+/* line 237, ../sass/screen.scss */
 .front-doors .left {
   float: left;
   width: 50%;
@@ -309,18 +313,18 @@ button.btn .yellowbutton {
   -moz-transition: all 0.5s ease;
   -webkit-transition: all 0.5s ease;
 }
-/* line 243, ../sass/screen.scss */
+/* line 248, ../sass/screen.scss */
 .front-doors .left:hover {
   background-color: #1292B5;
 }
-/* line 248, ../sass/screen.scss */
+/* line 253, ../sass/screen.scss */
 .front-doors .left .inner-content img {
   margin: 0 auto;
   margin-top: 45px;
   padding-left: 30px;
   padding-right: 30px;
 }
-/* line 257, ../sass/screen.scss */
+/* line 262, ../sass/screen.scss */
 .front-doors .right {
   float: left;
   width: 50%;
@@ -331,11 +335,11 @@ button.btn .yellowbutton {
   -moz-transition: all 0.5s ease;
   -webkit-transition: all 0.5s ease;
 }
-/* line 268, ../sass/screen.scss */
+/* line 273, ../sass/screen.scss */
 .front-doors .right:hover {
   background-color: #B0CA2B;
 }
-/* line 273, ../sass/screen.scss */
+/* line 278, ../sass/screen.scss */
 .front-doors .right .inner-content img {
   margin: 0 auto;
   margin-top: 45px;
@@ -343,31 +347,31 @@ button.btn .yellowbutton {
   padding-right: 30px;
 }
 
-/* line 283, ../sass/screen.scss */
+/* line 288, ../sass/screen.scss */
 footer {
   width: 100%;
   background-color: #d5d5d5;
   height: 180px;
   margin-top: 100px;
 }
-/* line 289, ../sass/screen.scss */
+/* line 294, ../sass/screen.scss */
 footer h3 {
   font-size: 1.6em;
 }
-/* line 293, ../sass/screen.scss */
+/* line 298, ../sass/screen.scss */
 footer .footer-container {
   padding-top: 30px;
 }
-/* line 296, ../sass/screen.scss */
+/* line 301, ../sass/screen.scss */
 footer .footer-container .icons {
   font-size: 4em;
   margin-bottom: 20px;
 }
-/* line 302, ../sass/screen.scss */
+/* line 307, ../sass/screen.scss */
 footer a, footer a:hover {
   color: #4c4c4c !important;
 }
-/* line 306, ../sass/screen.scss */
+/* line 311, ../sass/screen.scss */
 footer .garage-logo {
   position: absolute;
   right: 14%;
