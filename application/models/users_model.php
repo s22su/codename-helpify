@@ -36,4 +36,15 @@ class Users_Model extends CI_Model {
         }
         throw new ApplicationException('No user was found with specified Facebook ID');
     }
+
+    function getById($id)
+    {
+        $this->db->from('users');
+        $this->db->where('user_id', $id);
+
+        $query = $this->db->get();
+        foreach($query->result() as $row) {
+            return $row;
+        }
+    }
 }
