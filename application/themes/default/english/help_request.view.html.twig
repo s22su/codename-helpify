@@ -18,6 +18,9 @@
                 <dd><a href="mailto:{{ request_user.email }}">{{ request_user.email }}</a></dd>
                 <dt>Facebook contact:</dt>
                 <dd><a href="{{ request_user.facebook_profile }}">Facebook</a></dd>
+
+                <dt>Description:</dt>
+                <dd>{{request.description}}</dd>
             </dl>
 
             {% if messages %}
