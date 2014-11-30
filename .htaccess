@@ -4,5 +4,5 @@ RewriteCond %{HTTPS}s ^on(s)|
 RewriteRule ^ http%1://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
 RewriteEngine on
-RewriteCond $1 !^(index\.php|images|assets|robots\.txt)
+RewriteCond $1 !^(index\.php|googlee15035a03d708ef7\.html|images|assets|robots\.txt)
 RewriteRule ^(.*)$ /index.php/$1 [L]

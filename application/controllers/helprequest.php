@@ -69,12 +69,13 @@ class Helprequest extends CI_Controller {
 			$user = $this->authentication->getUserData();
 
 			$formData = array(
-				'user_id'   => $user->user_id,
-				'category'  => $this->input->post('category', true) ?: null,
-				'date'      => strtotime($this->input->post('date', true)) ?: time(),
-				'city'      => $this->input->post('city', true) ?: null,
-				'address'   => $this->input->post('address', true) ?: null,
-				'is_active' => true,
+				'user_id'     => $user->user_id,
+				'category'    => $this->input->post('category', true) ?: null,
+				'date'        => strtotime($this->input->post('date', true)) ?: time(),
+				'city'        => $this->input->post('city', true) ?: null,
+                'address'     => $this->input->post('address', true) ?: null,
+				'description' => $this->input->post('desc', true) ?: null,
+				'is_active'   => true,
 			);
 
 			// Geocode, OMFG so safe
