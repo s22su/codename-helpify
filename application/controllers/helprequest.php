@@ -6,12 +6,12 @@ class Helprequest extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 
-        // Deny if not authenticated
-        if(false === $this->authentication->isLoggedIn())
-        {
-            log_message('warning', 'Unauthenticated user attempted to access profile page');
-            redirect(site_url());
-        }
+        	// Deny if not authenticated
+        	if(false === $this->authentication->isLoggedIn())
+        	{
+        	    log_message('warning', 'Unauthenticated user attempted to access profile page');
+        	    redirect(site_url());
+        	}
 
 		new Common($this);
 	}
@@ -49,8 +49,8 @@ class Helprequest extends CI_Controller {
 			$this->twiggy->set('submitted', 1);
 		}
 
-        $this->load->model('helprequest_model');
-        $this->twiggy->set('cities', $this->helprequest_model->getCitiesWithHelpRequests());
+        	$this->load->model('helprequest_model');
+        	$this->twiggy->set('cities', $this->helprequest_model->getCitiesWithHelpRequests());
 
 		$this->twiggy->set('now', date('m/d/Y', time()));
 		$this->twiggy->template($this->currentLanguage.'/helprequest.index')->display();
@@ -89,7 +89,7 @@ class Helprequest extends CI_Controller {
 
 		$this->twiggy->set('now', date('m/d/Y', time()));
 		$this->twiggy->set('view_url', site_url('/helprequest/view'));
-        $this->twiggy->template($this->currentLanguage .'/help_request.add')->display();
+        	$this->twiggy->template($this->currentLanguage .'/help_request.add')->display();
 	}
 
 
