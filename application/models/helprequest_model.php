@@ -6,8 +6,6 @@ class Helprequest_Model extends CI_Model {
     var $user_id;
     var $category;
     var $city;
-    var $address;
-    var $address_formatted;
     var $date;
     var $lat;
     var $lon;
