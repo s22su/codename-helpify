@@ -1,7 +1,7 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Helper_Profile_Controller extends CI_Controller {
+class Helper_View_Controller extends CI_Controller {
 
     public function __construct() {
         include_once 'common.php';
