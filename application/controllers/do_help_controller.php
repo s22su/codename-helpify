@@ -29,7 +29,7 @@ class Do_Help_Controller extends CI_Controller {
 
         // Process the submitted information if exists
         if('POST' === $this->input->server('REQUEST_METHOD')) {
-            $this->input($this->input->post());
+            $error = $this->input($this->input->post());
         }
 
         // If we have not been redirected to next step, display the form
@@ -41,7 +41,7 @@ class Do_Help_Controller extends CI_Controller {
             $this->cache->file->save($cacheId, $profileImage);
         }
         $this->twiggy->set('profile_image', $profileImage);
-        $this->twiggy->set('error', $this->session->flashdata('error'));
+        $this->twiggy->set('error', isset($error) ? $error : null);
         $this->twiggy->template($this->currentLanguage.'/do_help')->display();
     }
 
@@ -53,15 +53,14 @@ class Do_Help_Controller extends CI_Controller {
         $this->form_validation->set_rules('experience', 'Experience', 'trim|max_length[1024]|xss_clean');
 
         if(false === $this->form_validation->run()) {
-            return false;
+            return 'Invalid data';
         }
 
         $this->load->helper('geocode_helper');
         $geocode = geocode($this->input->post('address'), $this->input->post('city'));
 
         if(false === $geocode) {
-            $this->session->set_flashdata('error', 'Location not found. Please enter a new location');
-            return false;
+            return 'Location not found. Please enter a new location';
         }
 
         $this->helper_profile_model->insert(

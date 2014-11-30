@@ -6,6 +6,7 @@ class Helprequest extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 
+        // Deny if not authenticated
         if(false === $this->authentication->isLoggedIn())
         {
             log_message('warning', 'Unauthenticated user attempted to access profile page');
@@ -13,7 +14,7 @@ class Helprequest extends CI_Controller {
         }
 
 		new Common($this);
-	}
+    }
 
 	public function index() {
 		// pre($this->authentication->getUserData());
@@ -48,11 +49,16 @@ class Helprequest extends CI_Controller {
 			$this->twiggy->set('submitted', 1);
 		}
 
+        $this->load->model('helprequest_model');
+        $this->twiggy->set('cities', $this->helprequest_model->getCitiesWithHelpRequests());
+
+        $this->twiggy->set('now', date('m/d/Y', time()));
 		$this->twiggy->template($this->currentLanguage.'/helprequest.index')->display();
 	}
 
 	public function add() {
-		// TODO: hardcoded also, should add the field in database
+
+        // TODO: hardcoded also, should add the field in database
 		$country = 'Estonia';
 
 		if($this->input->post()) {
@@ -112,7 +118,7 @@ class Helprequest extends CI_Controller {
 			$this->twiggy->set('record', FALSE);
 		}
 
-		$this->twiggy->set('record', TRUE);
+        $this->twiggy->set('record', TRUE);
 		$this->twiggy->set('request_user', $user);
 		$this->twiggy->set('request', $helpRequest);
 
