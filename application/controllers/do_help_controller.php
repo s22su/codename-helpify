@@ -48,7 +48,6 @@ class Do_Help_Controller extends CI_Controller {
     protected function input($post) {
         $this->load->library('form_validation');
         $this->form_validation->set_rules('city', 'City', 'trim|required|min_length[1]|max_length[64]|xss_clean');
-        $this->form_validation->set_rules('address', 'Address', 'trim|required|min_length[1]|max_length[64]|xss_clean');
         $this->form_validation->set_rules('hobbies', 'Hobbies', 'trim|max_length[1024]|xss_clean');
         $this->form_validation->set_rules('experience', 'Experience', 'trim|max_length[1024]|xss_clean');
 
@@ -57,7 +56,7 @@ class Do_Help_Controller extends CI_Controller {
         }
 
         $this->load->helper('geocode_helper');
-        $geocode = geocode($this->input->post('address'), $this->input->post('city'));
+        $geocode = geocode($this->input->post('city'));
 
         if(false === $geocode) {
             return 'Location not found. Please enter a new location';
@@ -67,8 +66,6 @@ class Do_Help_Controller extends CI_Controller {
             array(
                 'user_id' => $this->user->user_id,
                 'city' => $geocode['city'],
-                'address' => $this->input->post('address'),
-                'address_formatted' => $geocode['address'],
                 'lat' => $geocode['latitude'],
                 'lon' => $geocode['longitude'],
                 'hobbies' => $this->input->post('hobbies'),

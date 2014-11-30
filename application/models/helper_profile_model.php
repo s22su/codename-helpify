@@ -5,8 +5,6 @@ class Helper_Profile_Model extends CI_Model {
     var $id;
     var $user_id;
     var $city;
-    var $address;
-    var $address_formatted;
     var $lat;
     var $lon;
     var $hobbies;

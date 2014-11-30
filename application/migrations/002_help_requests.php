@@ -32,16 +32,6 @@ class Migration_Help_requests extends CI_Migration {
                 'null' => TRUE,
                 'constraint' => '255',
             ),
-            'address' => array(
-                'type' => 'VARCHAR',
-                'null' => TRUE,
-                'constraint' => '255',
-            ),
-            'address_formatted' => array(
-                'type' => 'VARCHAR',
-                'null' => TRUE,
-                'constraint' => '255',
-            ),
             'date' => array(
                 'type' => 'INT',
                 'null' => TRUE

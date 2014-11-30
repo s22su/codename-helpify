@@ -73,7 +73,6 @@ class Helprequest extends CI_Controller {
 				'category'    => $this->input->post('category', true) ?: null,
 				'date'        => strtotime($this->input->post('date', true)) ?: time(),
 				'city'        => $this->input->post('city', true) ?: null,
-                'address'     => $this->input->post('address', true) ?: null,
 				'description' => $this->input->post('desc', true) ?: null,
 				'is_active'   => true,
 			);
