@@ -2,7 +2,7 @@
 
 include 'common.php';
 
-class Home extends CI_Controller {
+class Public_Home_Controller extends CI_Controller {
 	
 	public function __construct() {
 		parent::__construct();

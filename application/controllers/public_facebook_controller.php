@@ -1,7 +1,7 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Facebook_Controller extends CI_Controller {
+class Public_Facebook_Controller extends CI_Controller {
 
     public function authentication()
     {
