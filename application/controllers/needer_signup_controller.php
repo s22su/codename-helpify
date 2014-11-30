@@ -42,7 +42,6 @@ class Needer_Signup_Controller extends CI_Controller {
 
             $formData['lat'] = $this->ja_geocode->lat;
             $formData['lon'] = $this->ja_geocode->lng;
-            $formData['address_formatted'] = $this->ja_geocode->address;
 
             $entries = $this->helprequest_model->addHelpRequest($formData);
 
