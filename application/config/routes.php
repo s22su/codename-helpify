@@ -59,6 +59,7 @@ $route['logout'] = 'public_facebook_controller/logout';
 
 // functional routes
 $route['about'] = "public_home_controller/about";
+$route['volunteer'] = "public_home_controller/volunteer";
 $route['team'] = "public_home_controller/team";
 $route['helprequest'] = "helper_search_controller/index";
 $route['my_helprequests'] = "needer_listoffers_controller/my_helprequests";
