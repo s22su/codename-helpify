@@ -11,7 +11,7 @@
     <title> {{ lang_texts.site_title }} </title>
 
     <link href="{{base_url}}/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="{{base_url}}/assets/vendor/bootstrap-accessibility-plugin/plugins/css/bootstrap-accessibility_1.0.3.css" rel="stylesheet">
+    <link href="{{base_url}}/assets/vendor/bootstrap-datepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="{{base_url}}/assets/stylesheets/screen.css" rel="stylesheet">
@@ -22,12 +22,13 @@
     <nav class="navbar navbar-fixed-top helpific-navbar" role="navigation">
       <div class="container">
         <div class="navbar-header">
+
+          <div class="header-logo pull-left"><a href="{{base_url}}"><img src="{{base_url}}/assets/images/logo_small_header.png" class="img-responsive" alt=""></a></div>
+
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <i class="fa fa-bars"></i>
           </button>
 
-          <!-- <a class="navbar-brand" href="{{base_url}}">{{lang_texts.nav_head_text}}</a> -->
-        
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -41,14 +42,40 @@
       </div>
     </nav>
 
+    {% block header_picture %}{% endblock %}
+    {% block front_doors %}{% endblock %}
+
     <div class="container main-container">
 
       {% block content %}{% endblock %}
 
     </div><!-- /.container -->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <footer>
+        <div class="container footer-container">
+
+        <div class="row centered icons">
+
+          <a href="https://www.facebook.com/Helpific" target="_blank"><i class="fa fa-facebook-square"></i></a>
+
+          <a href="https://twitter.com/helpific" target="_blank"><i class="fa fa-twitter-square"></i></a>
+
+        </div>
+
+        <div class="garage-logo"><a href="http://garage48.org" target="_blank" class="pull-right"><img src="{{base_url}}/assets/images/garage48_logo.png" alt="Garage48"></a></div>
+
+        <div class="row">
+          <h3 class="centered">Isn't it easier together</h3>
+        </div>
+
+        </div>
+      </footer>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="{{base_url}}/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="{{base_url}}/assets/vendor/bootstrap-accessibility-plugin/plugins/js/bootstrap-accessibility_1.0.3.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment-with-locales.min.js"></script>
+    <script src="{{base_url}}/assets/vendor/bootstrap-datepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="{{base_url}}/assets/js/main.js"></script>
   </body>
 </html>

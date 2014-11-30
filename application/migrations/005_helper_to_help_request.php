@@ -1,10 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Migration_Helpifications extends CI_Migration {
-    const TABLE_NAME = 'helpifications';
+class Migration_Helper_To_Help_Request extends CI_Migration {
+    const TABLE_NAME = 'helper_to_help_request';
 
-    const PRIMARY_KEY = 'helpification_id';
+    const PRIMARY_KEY = 'id';
 
     public function up()
     {
@@ -14,7 +14,11 @@ class Migration_Helpifications extends CI_Migration {
                 'unsigned' => TRUE,
                 'auto_increment' => TRUE
             ),
-            Migration_Users::PRIMARY_KEY => array(
+            'do_help_user_id' => array(
+                'type' => 'BIGINT',
+                'unsigned' => TRUE,
+            ),
+            'help_request_id' => array(
                 'type' => 'BIGINT',
                 'unsigned' => TRUE,
             ),
@@ -22,11 +26,8 @@ class Migration_Helpifications extends CI_Migration {
                 'type' => 'TEXT',
                 'null' => TRUE,
             ),
-            'latitude' => array(
-                'type' => 'POINT'
-            ),
-            'longitude' => array(
-                'type' => 'POINT'
+            'accepted' => array(
+                'type' => 'TINYINT'
             ),
             'created_at' => array(
                 'type' => 'TIMESTAMP DEFAULT CURRENT_TIMESTAMP'

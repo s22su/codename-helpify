@@ -1,0 +1,6 @@
+@media (max-width: 768px) {
+  /* line 2, ../sass/small.scss */
+  .header-logo {
+    margin-left: 20px;
+  }
+}

@@ -19,7 +19,7 @@ class Authentication {
     }
 
     public function isLoggedIn() {
-        return null !== $this->data;
+        return null !== $this->getUserData();
     }
 
     public function getUserData() {

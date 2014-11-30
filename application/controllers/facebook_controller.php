@@ -1,13 +1,20 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-if ( ! defined('ENVIRONMENT') || ENVIRONMENT !== 'development') exit('Development mode only');
 
 class Facebook_Controller extends CI_Controller {
 
     public function authentication()
     {
-        $this->load->spark('codeigniter-oauth/0.0.2');
-        $this->oauth->authorize('facebook');
+        $role = $this->uri->segment(2);
+
+        if(false === $this->authentication->isLoggedIn())
+        {
+            $this->session->set_userdata('role', $role);
+            $this->load->spark('codeigniter-oauth/0.0.2');
+            $this->oauth->authorize('facebook');
+        }
+
+        $this->redirectToProfile($role);
     }
 
     public function callback()
@@ -16,13 +23,13 @@ class Facebook_Controller extends CI_Controller {
         $result = $this->oauth->authorize_result('facebook');
         if('success' !== $result->status) {
             $this->session->set_flashdata('message', 'Authentication failed');
-            log_message('Authentication failed 1');
+            log_message('notice', 'Authentication failed 1');
             redirect(site_url());
         }
         $auth = $this->oauth->access('facebook', $result->token);
         if('success' !== $auth->status) {
             $this->session->set_flashdata('message', 'Authentication failed');
-            log_message('Authentication failed 2');
+            log_message('notice', 'Authentication failed 2');
             redirect(site_url());
         }
         /**
@@ -53,9 +60,22 @@ class Facebook_Controller extends CI_Controller {
                 )
             );
         }
-        $this->authentication->setUserData($user);
+
+        $this->authentication->setUserData($this->users_model->getRecordByFacebookId($user->id));
         $this->session->set_flashdata('message', 'Successfully logged in');
-        redirect(site_url());
+
+        $role = $this->session->userData('role');
+
+        $this->session->set_userdata('role', null);
+
+        $this->redirectToProfile($role);
+    }
+
+    /**
+     * @param string $role
+     */
+    protected function redirectToProfile($role) {
+        redirect(sprintf('%s%s', site_url(), $role));
     }
 
     public function logout() {

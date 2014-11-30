@@ -1,0 +1,101 @@
+{% extends "_layouts/main_layout.html.twig" %}
+
+{% block content %}
+    <div class="row">
+
+    	<div class="centered"><h1>Search for help needers</h1><br><br><br></div>
+
+
+			<form action="" class="form-horizontal" role="form" method="get">
+		        <div class="form-group">
+		            <label for="categorySelect" class="col-sm-2 control-label">Category</label>
+
+		            <div class="col-sm-5">
+			            <select name="category" class="form-control" id="categorySelect">
+							<option>Visiting cultural events</option>
+							<option>Housework</option>
+							<option>Transport</option>
+							<option>Personal assistance</option>
+						</select>
+					</div>
+		        </div>
+
+		        <div class="form-group">
+		            <label for="citySelect" class="col-sm-2 control-label">City</label>
+
+		            <div class="col-sm-5">
+			            <select name="city" class="form-control" id="citySelect">
+                            {% for city in cities %}
+                                <option value="{{ city }}">{{ city }}</option>
+                            {% endfor %}
+			            </select>
+			        </div>
+		        </div>
+
+			    <div class="form-group">
+			      <label for="date" class="col-sm-2 control-label">Date:</label>
+			        <div class=" col-sm-5">
+			          <div class="input-group date" id="datetimepicker">
+			            <input type="text" class="form-control" value="{{ now }}" />
+			            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+			            </span>
+			          </div>
+			      </div>
+			    </div>
+
+		        <input type="hidden" name="submitted" value="1">
+
+				<div class="form-group">
+				  <div class="col-sm-offset-2 col-sm-10">
+				    <button type="submit" class="btn btn-primary btn-lg"><i class="fa fa-search"></i> Search</button>
+				  </div>
+				</div>
+			</form>
+	</div>
+
+	{% if submitted %}
+		{% if entries %}
+
+			<div class="row m40top">
+				<div class="col-xs-12 col-sm-10 col-sm-offset-1">
+					<ul class="event-list">
+
+						{% for entry in entries %}
+
+							<li>
+								<time datetime="{{entry.converted_date.dateY}}">
+									<span class="day">{{entry.converted_date.day}}</span>
+									<span class="month">{{entry.converted_date.monthName3}}</span>
+									<span class="year">{{entry.converted_date.year}}</span>
+									<span class="time">ALL DAY</span>
+								</time>
+
+								<div class="info">
+									<h2 class="title">{{entry.name}}</h2>
+									<p class="desc">Location: {{entry.address}}</p>
+									{%if entry.description %}
+										<p class="desc">{{entry.description}}</p>
+									{% else %}
+										<p class="desc italic">No description available</p>
+									{% endif %}
+
+								</div>
+
+								<div class="viewButton">
+									<a class="btn btn-lg btn-success" href="/helprequest/view/{{ entry.id }}">View</a>
+								</div>
+
+							</li>
+
+						{% endfor %}
+
+					</ul>
+				</div>
+			</div>
+
+		{% else %}
+			nothing found
+		{% endif %}
+	{% endif %}
+
+{% endblock %}

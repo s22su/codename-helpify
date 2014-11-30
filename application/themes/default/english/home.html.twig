@@ -1,28 +1,82 @@
 {% extends "_layouts/main_layout.html.twig" %}
 
-{% block content %}
-	
-	<span class="centered"><h1>Isn't it easier together</h1></span>
-	
+{% block header_picture %}
+    <div class="header_picture">
+
+    <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <div>
+              <iframe width="560" height="315" src="//www.youtube.com/embed/nLEv2P4FEbU" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+        <div class="headline centered">
+          <h1>Helpific - it´s never been easier to give and get help. </h1><br>
+          <h2>Helpific is a person to person platform to create stronger communities. </h2>
+          <a href="#" data-toggle="modal" data-target="#videoModal" data-theVideo="http://www.youtube.com/embed/loFtozxZG0s">
+            
+            <img src="{{base_url}}/assets/images/playbutton.png" class="img-responsive centered-margin m40top">
+
+            <h2 class="m20top">Watch video</h2>
+
+          </a>
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block front_doors %}
     
-    <div class="row fp-main-buttons-container">
-		<div class="col-md-5 centered">
-			<img src="{{base_url}}/assets/images/door2.png" class="img-responsive" alt="">
-			<button class="btn yellowbutton">I need help</button>
-		</div>
-		<div class="col-md-2"></div>
-		<div class="col-md-5 centered">
-			<img src="{{base_url}}/assets/images/door1.png" class="img-responsive" alt="">
-			<button class="btn yellowbutton">I want to help</button>
-		</div>
+    <div class="front-doors">
+
+        <img src="{{base_url}}/assets/images/the_key.png" class="img-responsive keyImage">
+
+        <div class="left">
+
+            <div class="inner-content">
+                <a href="#" class="btn">I NEED HELP</a>
+                
+                <p>
+                    <span class="first-line">State your <strong>NEED</strong></span><br>
+                    <span class="second-line">so you can see the deed</span>
+                    </span>
+                </p>
+                
+                <img src="{{base_url}}/assets/images/door-left.png" class="img-responsive m40top">
+            </div>
+
+        </div>
+        <div class="right">
+            
+            <div class="inner-content">
+                <a href="#" class="btn">I WANT TO HELP</a>
+                
+                <p>
+                    <span class="first-line">Be a <strong>HERO</strong></span><br>
+                    <span class="second-line">in your communiy</span>
+                </p>
+
+                <img src="{{base_url}}/assets/images/door-right.png" class="img-responsive m40top">
+            </div>
+
+        </div>
     </div>
 
-    <div class="centered">
-    	{% if user == false %}
-    	<a href="{{base_url}}/auth/facebook"><i class="fa fa-facebook" style="font-size: 30px"></i></a>
-    	{% endif %}
-    </div>
+{% endblock %}
 
-    <br><br><br><br><br>
+
+{% block content %}
+    
+    <br><br><br><br><br><br>
+    <h1 class="centered gray">HOW HELPIFIC WORKS</h1>
+
+    <img src="{{base_url}}/assets/images/how-it-works.png" class="img-responsive m40top">
 
 {% endblock %}
