@@ -78,7 +78,7 @@ body {
 
 /* line 22, ../sass/screen.scss */
 input[type="text"], textarea, select {
-  border: 2px solid #4c4c4c !important;
+  border: 1px solid #4c4c4c !important;
   border-radius: 0 !important;
   -webkit-border-radius: 0 !important;
 }
@@ -86,7 +86,7 @@ input[type="text"], textarea, select {
 /* line 28, ../sass/screen.scss */
 .input-group-addon {
   border-color: #4c4c4c !important;
-  border-width: 2px;
+  border-width: 1px;
   border-radius: 0 !important;
 }
 
