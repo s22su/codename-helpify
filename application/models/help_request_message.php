@@ -41,7 +41,6 @@ class Helper_Profile_Model extends CI_Model {
             throw new ApplicationException('Help Request ID required');
         }
         $helpRequestId = $this->db->escape($helpRequestId);
-        $helperId = $this->db->escape($helperId);
         $query = $this->db->query("
             select * from help_requests r
             inner join help_request_messages m on r.id = m.help_request_id
