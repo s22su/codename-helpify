@@ -222,6 +222,7 @@ button.btn {
 
 	.inner-content {
 		padding-top: 100px;
+        position: relative;
 
 		.second-line {
 			font-size: 1.28em;
@@ -236,6 +237,12 @@ button.btn {
 			}
 		}
 	}
+
+    .ondoorimage {
+      position: absolute;
+      text-align: center;
+      width: 100%;
+    }
 
 	.left {
 		float: left;
@@ -260,11 +267,6 @@ button.btn {
 				padding-right: 30px;
 				max-height: 334px!important;
 			}
-		}
-
-		.ondoorimage {
-			position: absolute;
-			margin-left: 15.35%;
 		}
 	}
 
@@ -291,11 +293,6 @@ button.btn {
 				padding-right: 30px;
 				max-height: 334px!important;
 			}
-		}
-
-		.ondoorimage {
-			position: absolute;
-			margin-left: 16%;
 		}
 	}
 }
