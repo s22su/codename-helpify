@@ -11,11 +11,15 @@ $yellow: #ffc600;
 $mainGray: #4c4c4c;
 
 body {
-	padding-top: 105px;
+	padding-top: 50px;
 	font-family: 'Open Sans', sans-serif;
 	background-color: #fff;
 	color: #4c4c4c;
 	gangam: #style;
+}
+
+body .alerts {
+  margin-top: 55px;
 }
 
 // input override
@@ -254,7 +258,7 @@ button.btn {
 				margin-top: 45px;
 				padding-left: 30px;
 				padding-right: 30px;
-				max-height: 334px!important;	
+				max-height: 334px!important;
 			}
 		}
 
@@ -288,7 +292,7 @@ button.btn {
 				max-height: 334px!important;
 			}
 		}
-		
+
 		.ondoorimage {
 			position: absolute;
 			margin-left: 16%;
