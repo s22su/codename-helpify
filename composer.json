@@ -9,5 +9,8 @@
     ],
     "require": {
         "Celc/ciunit": "dev-master"
+    },
+    "require-dev": {
+        "johnkary/phpunit-speedtrap": "~1.0@dev"
     }
 }
