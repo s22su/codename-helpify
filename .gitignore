@@ -10,3 +10,8 @@ application/logs/*
 
 assets/.sass-cache/*
 application/config/development/*
+
+/vendor/
+
+.idea/*
+composer.lock

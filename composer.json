@@ -1,0 +1,13 @@
+{
+    "name": "helpific/frontend",
+    "description": "Helpific web site",
+    "authors": [
+        {
+            "name": "siimsoni",
+            "email": "dev@siimsoni.ee"
+        }
+    ],
+    "require": {
+        "Celc/ciunit": "dev-master"
+    }
+}
