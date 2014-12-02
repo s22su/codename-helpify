@@ -1,0 +1,53 @@
+'---
+results:
+  - 
+    address_components:
+      - 
+        long_name: Tallinn
+        short_name: Tallinn
+        types:
+          - locality
+          - political
+      - 
+        long_name: Tallinna linn
+        short_name: Tallinna linn
+        types:
+          - administrative_area_level_2
+          - political
+      - 
+        long_name: Harjumaa
+        short_name: Harjumaa
+        types:
+          - administrative_area_level_1
+          - political
+      - 
+        long_name: Eesti Vabariik
+        short_name: EE
+        types:
+          - country
+          - political
+    formatted_address: Tallinn, Eesti Vabariik
+    geometry:
+      bounds:
+        northeast:
+          lat: 59.5914239
+          lng: 24.9262889
+        southwest:
+          lat: 59.351809
+          lng: 24.5501939
+      location:
+        lat: 59.4369608
+        lng: 24.7535746
+      location_type: APPROXIMATE
+      viewport:
+        northeast:
+          lat: 59.4981089
+          lng: 24.9262889
+        southwest:
+          lat: 59.351809
+          lng: 24.5501939
+    types:
+      - locality
+      - political
+status: OK
+'

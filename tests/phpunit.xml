@@ -8,8 +8,8 @@
         <server name="REMOTE_ADDR" vaulue="127.0.0.1"/>
     </php>
     <testsuites>
-        <testsuite name="HelperTests">
-            <directory suffix=".php">helpers</directory>
+        <testsuite name="LibTests">
+            <directory suffix=".php">libs</directory>
         </testsuite>
         <testsuite name="SystemTests">
             <directory suffix=".php">system</directory>
