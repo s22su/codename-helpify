@@ -8,8 +8,14 @@
         <server name="REMOTE_ADDR" vaulue="127.0.0.1"/>
     </php>
     <testsuites>
+        <testsuite name="HelperTests">
+            <directory suffix=".php">helpers</directory>
+        </testsuite>
         <testsuite name="SystemTests">
             <directory suffix=".php">system</directory>
         </testsuite>
     </testsuites>
+    <listeners>
+        <listener class="JohnKary\PHPUnit\Listener\SpeedTrapListener" />
+    </listeners>
 </phpunit>

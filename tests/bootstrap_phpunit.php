@@ -140,7 +140,11 @@ $ciunit_folder = $vendor_folder . '/celc/ciunit/src/';
  */
 $tests_folder = dirname(__FILE__);
 
-
+/**
+ * --------------------------------------------------------------
+ * INITIALIZE COMPOSER.PHAR AUTOLOADING
+ * --------------------------------------------------------------
+ */
 require_once $vendor_folder . '/autoload.php';
 
 // --------------------------------------------------------------------
@@ -231,6 +235,17 @@ if (is_dir($ciunit_folder)) {
 
 // The path to the Tests folder
 define('TESTSPATH', realpath($tests_folder) . '/');
+
+/**
+ * --------------------------------------------------------------
+ * INITIALIZE SOME LOADERS...
+ * --------------------------------------------------------------
+ */
+define('SPARKPATH', dirname(__FILE__) . '/../sparks/');
+
+require_once $system_path . '/core/Loader.php';
+require_once $application_folder . '/core/MY_Loader.php';
+require_once $application_folder . '/core/CIU_Loader.php';
 
 /*
  * --------------------------------------------------------------------
